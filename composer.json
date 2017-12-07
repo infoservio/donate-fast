@@ -39,7 +39,7 @@
         }
     },
     "extra": {
-        "name": "Donations Free",
+        "name": "Stripe Donation",
         "handle": "stripe-donation",
         "schemaVersion": "1.0.0",
         "hasCpSettings": true,
