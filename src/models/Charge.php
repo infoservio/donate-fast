@@ -51,7 +51,7 @@ class Charge extends Model
             [['id', 'cardId', 'projectId', 'created'], 'integer'],
             [['amount', 'amountRefunded'], 'double'],
             ['currency', 'string', 'max' => 10],
-            [['changeId', 'balanceTransaction'], 'string', 'max' => 50],
+            [['chargeId', 'balanceTransaction'], 'string', 'max' => 50],
             [['projectName', 'failureCode'], 'string', 'max' => 50],
             [['fraudDetails', 'failureMessage'], 'string'],
             [['cardId', 'chargeId', 'amount'], 'required']
