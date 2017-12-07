@@ -50,7 +50,7 @@
             "stripe": "endurant\\stripedonation\\services\\StripeService",
             "card": "endurant\\stripedonation\\services\\CardService",
             "customer": "endurant\\stripedonation\\services\\CustomerService",
-            "charge": "endurant\\stripedonation\\services\\TransactionService",
+            "charge": "endurant\\stripedonation\\services\\ChargeService",
             "log": "endurant\\stripedonation\\services\\LogService",
             "donationSetting": "endurant\\stripedonation\\services\\DonationsSettingsService",
             "plugin": "endurant\\stripedonation\\services\\PluginService",
