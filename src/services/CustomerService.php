@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace endurant\donationsfree\services;
+namespace endurant\stripedonation\services;
 
 use craft\base\Component;
 

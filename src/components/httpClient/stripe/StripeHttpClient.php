@@ -24,7 +24,6 @@ class StripeHttpClient extends Component
 
         // Configuration of Stripe
         Stripe::setApiKey($this->_settings->stripeSecretKey);
-        Stripe::setClientId($this->_settings->stripePublishableKey);
     }
 
     // Public Methods
