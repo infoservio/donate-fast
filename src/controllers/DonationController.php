@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace endurant\donationsfree\controllers;
+namespace endurant\stripedonation\controllers;
 
 use endurant\stripedonation\StripeDonation;
 
@@ -98,12 +98,12 @@ class DonationController extends Controller
         try {
             StripeDonation::$PLUGIN->donation->donate($post);
         } catch (DonationsPluginException $e) {
-            return $this->redirect('/actions/donations-free/donation/error');
+            return $this->redirect('/actions/stripe-donation/donation/error');
         } catch (\Error $e) {
-            return $this->redirect('/actions/donations-free/donation/error');
+            return $this->redirect('/actions/stripe-donation/donation/error');
         }
 
         Craft::$app->session->set('donation', $post);
-        return $this->redirect('/actions/donations-free/donation/success');
+        return $this->redirect('/actions/stripe-donation/donation/success');
     }
 }
