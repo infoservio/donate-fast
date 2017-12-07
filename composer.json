@@ -54,7 +54,7 @@
             "log": "endurant\\stripedonation\\services\\LogService",
             "donationSetting": "endurant\\stripedonation\\services\\DonationsSettingsService",
             "plugin": "endurant\\stripedonation\\services\\PluginService",
-            "stripeHttpClient": "endurant\\stripedonation\\components\\httpClient\\stripe\\StripeHttpClient",
+            "stripeClient": "endurant\\stripedonation\\components\\httpClient\\stripe\\StripeHttpClient",
             "donationLogger": "endurant\\stripedonation\\components\\logger\\Logger"
         },
         "class": "endurant\\stripedonation\\StripeDonation"
