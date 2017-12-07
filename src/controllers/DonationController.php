@@ -95,6 +95,7 @@ class DonationController extends Controller
     {
         $this->requirePostRequest();
         $post = Craft::$app->request->getBodyParams();
+//        die(json_encode($post));
         try {
             StripeDonation::$PLUGIN->donation->donate($post);
         } catch (DonationsPluginException $e) {

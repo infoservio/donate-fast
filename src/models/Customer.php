@@ -56,8 +56,8 @@ class Customer extends Model
     public static function create(array $params)
     {
         $customer = new self();
-        $customer->email = $params['email'];
-        $customer->phone = $params['phone'];
+        $customer->email = $params['stripeEmail'];
+//        $customer->phone = $params['phone'];
 
         return $customer;
     }

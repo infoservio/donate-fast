@@ -47,7 +47,7 @@
         "changelogUrl": "???",
         "components": {
             "donation": "endurant\\stripedonation\\services\\DonationService",
-            "stripe": "endurant\\stripedonation\\services\\BraintreeService",
+            "stripe": "endurant\\stripedonation\\services\\StripeService",
             "card": "endurant\\stripedonation\\services\\CardService",
             "customer": "endurant\\stripedonation\\services\\CustomerService",
             "charge": "endurant\\stripedonation\\services\\TransactionService",

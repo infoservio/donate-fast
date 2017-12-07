@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace endurant\stripedonation\assetbundles\settings;
+namespace endurant\stripedonation\assetbundles\parsley;
 
 use Craft;
 use craft\web\AssetBundle;
@@ -32,7 +32,7 @@ use craft\web\assets\cp\CpAsset;
  * @package   Donationsfree
  * @since     1.0.0
  */
-class DonationsFreeSettingsAssetBundle extends AssetBundle
+class ParsleyAssetBundle extends AssetBundle
 {
     // Public Methods
     // =========================================================================
@@ -43,22 +43,16 @@ class DonationsFreeSettingsAssetBundle extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = '@endurant/stripedonation/assetbundles/settings/dist/';
+        $this->sourcePath = '@endurant/stripedonation/assetbundles/parsley/dist/';
 
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered
         $this->js = [
-            'js/index.js',
-            'js/jscolor.js',
+            'js/parsley.js',
         ];
 
         $this->css = [
-            'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css',
-            'css/style.css'
-        ];
-
-        $this->depends = [
-            'yii\web\JqueryAsset',
+            'css/parsley.css'
         ];
 
         $this->publishOptions = ['forceCopy' => true];

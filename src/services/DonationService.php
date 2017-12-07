@@ -42,13 +42,13 @@ class DonationService extends Component
         $customer = Customer::create($params);
         $card = new Card();
         $charge = new Charge();
-        $charge->amount = intval($params['amount']);
+        $charge->amount = intval($params['fixedAmount']);
         $charge->projectId = intval($params['projectId']);
         $charge->projectName = $params['projectName'];
 
         $stripeService = $plugin->stripe;
 
-        $stripeService->createCustomer($customer, $params['nonce']);
+        $stripeService->createCustomer($customer, $params['stripeToken']);
         $stripeService->createCharge($charge, $card, $customer);
 
        try {

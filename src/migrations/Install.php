@@ -196,26 +196,6 @@ class Install extends Migration
             'name' => 'errorMessage',
             'value' => 'Error Message'
         ]);
-
-        $this->insert('stripe_donation_setting', [
-            'name' => 'color',
-            'value' => 'F62F5E'
-        ]);
-
-        $this->insert('stripe_donation_setting', [
-            'name' => 'icon',
-            'value' => 'icon.png'
-        ]);
-
-        $this->insert('stripe_donation_setting', [
-            'name' => 'header',
-            'value' => 'Stripe.com'
-        ]);
-
-        $this->insert('stripe_donation_setting', [
-            'name' => 'description',
-            'value' => 'Best payment system in the world.'
-        ]);
     }
 
     private function tableExists($table)
