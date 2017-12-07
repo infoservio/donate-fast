@@ -1,0 +1,53 @@
+{#
+/**
+ * donations-free plugin for Craft CMS 3.x
+ *
+ * donations-free Settings.twig
+ *
+ * @author    endurant
+ * @copyright Copyright (c) 2017 endurant
+ * @link      https://endurant.org
+ * @package   Donationsfree
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+<h2 class="instructions-header">Instructions</h2>
+
+<div>
+    API credentials are unique account identifiers that must be added to your code before you can process payments via the API. Think of them as your username and password to payment processing.
+    This is your user-specific public identifier. Each user associated with your Stripe gateway will have their own public and private keys.
+
+    To find your keys:
+
+    <ol>
+        <li>Log into either the production Control Panel or the sandbox Control Panel, depending on which environment you are working in</li>
+        <li>Navigate to Account > My User</li>
+        <li>Under API Keys, Tokenization Keys, Encryption Keys, click View Authorizations</li>
+    </ol>
+
+    You'll find your keys under the API Keys section at the top. If no API keys appear, click Generate New API Key.
+</div>
+
+{{ forms.textField({
+    label: 'Secret Key',
+    instructions: 'Get this parameter from your stripe account.',
+    id: 'stripeSecretKey',
+    name: 'stripeSecretKey',
+    value: settings['stripeSecretKey'],
+    required: true,
+    element: true
+})
+}}
+
+{{ forms.textField({
+    label: 'Publishable Key',
+    instructions: 'Get this parameter from your stripe account.',
+    id: 'stripePublishableKey',
+    name: 'stripePublishableKey',
+    value: settings['stripePublishableKey'],
+    required: true
+})
+}}

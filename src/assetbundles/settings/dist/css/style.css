@@ -1,0 +1,8 @@
+@font-face {
+    font-family: Brela;
+    src: url('../fonts/brelaregular.otf');
+}
+
+.required-field {
+    color: #da5a47;
+}

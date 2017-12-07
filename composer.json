@@ -1,0 +1,65 @@
+{
+    "name": "endurant/stripe-donation",
+    "description": "Free Stripe Donation Plugin",
+    "type": "craft-plugin",
+    "version": "1.0.10",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "stripe",
+        "donation"
+    ],
+    "support": {
+        "docs": "http://test",
+        "issues": "http://test"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "endurant",
+            "homepage": "https://endurant.org"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "~3.0.0-beta.23",
+        "yiisoft/yii2": "^2.0",
+        "stripe/stripe-php": "^5.7"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+          "endurant\\stripedonation\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Donations Free",
+        "handle": "stripe-donation",
+        "schemaVersion": "1.0.0",
+        "hasCpSettings": true,
+        "hasCpSection": true,
+        "changelogUrl": "???",
+        "components": {
+            "donation": "endurant\\stripedonation\\services\\DonationService",
+            "stripe": "endurant\\stripedonation\\services\\BraintreeService",
+            "card": "endurant\\stripedonation\\services\\CardService",
+            "customer": "endurant\\stripedonation\\services\\CustomerService",
+            "charge": "endurant\\stripedonation\\services\\TransactionService",
+            "log": "endurant\\stripedonation\\services\\LogService",
+            "donationSetting": "endurant\\stripedonation\\services\\DonationsSettingsService",
+            "plugin": "endurant\\stripedonation\\services\\PluginService",
+            "stripeHttpClient": "endurant\\stripedonation\\components\\httpClient\\stripe\\StripeHttpClient",
+            "donationLogger": "endurant\\stripedonation\\components\\logger\\Logger"
+        },
+        "class": "endurant\\stripedonation\\StripeDonation"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2"
+    }
+}
