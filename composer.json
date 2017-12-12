@@ -2,7 +2,7 @@
     "name": "endurant/stripe-donation",
     "description": "Free Stripe Donation Plugin",
     "type": "craft-plugin",
-    "version": "1.0.10",
+    "version": "1.0.0",
     "keywords": [
         "craft",
         "cms",
@@ -31,9 +31,8 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "https://asset-packagist.org"
-        },
-        { "type": "composer", "url": "https://oms:Ap5AJN86bLg93dxX@composer.oms.systems" }
+            "url": "https://oms:Ap5AJN86bLg93dxX@composer.oms.systems"
+        }
     ],
     "autoload": {
         "psr-4": {
