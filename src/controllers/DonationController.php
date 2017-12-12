@@ -10,6 +10,7 @@
 
 namespace endurant\stripedonation\controllers;
 
+use endurant\mailmanager\MailManager;
 use endurant\stripedonation\StripeDonation;
 
 use Craft;

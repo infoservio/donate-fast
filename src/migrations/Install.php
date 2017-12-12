@@ -182,6 +182,7 @@ class Install extends Migration
     private function insertDefaultData()
     {
         $this->insertDonationsSettingsDefaultValue();
+        $this->insertMailManagerTemplate();
     }
 
 
@@ -195,6 +196,16 @@ class Install extends Migration
         $this->insert('stripe_donation_setting', [
             'name' => 'errorMessage',
             'value' => 'Error Message'
+        ]);
+    }
+
+    private function insertMailManagerTemplate()
+    {
+        $this->insert('mailmanager_template', [
+            'name' => 'Success Donation Email',
+            'slug' => 'success-donation-email',
+            'subject' => 'Thank you for donation',
+            'template' => 'Thank you for donation.'
         ]);
     }
 

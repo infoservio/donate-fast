@@ -10,7 +10,7 @@
 
 namespace endurant\stripedonation;
 
-use endurant\donationsfree\services\CustomerService;
+use endurant\stripedonation\services\CustomerService;
 use endurant\stripedonation\components\httpClient\stripe\StripeHttpClient;
 use endurant\stripedonation\components\logger\Logger;
 use endurant\stripedonation\models\Settings;
