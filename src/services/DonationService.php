@@ -10,6 +10,7 @@
 
 namespace endurant\stripedonation\services;
 
+use endurant\mailmanager\MailManager;
 use endurant\stripedonation\errors\StripeDonationsPluginException;
 use endurant\stripedonation\StripeDonation;
 
@@ -50,6 +51,9 @@ class DonationService extends Component
 
         $stripeService->createCustomer($customer, $params['stripeToken']);
         $stripeService->createCharge($charge, $card, $customer);
+
+        // sending email
+        MailManager::$PLUGIN->mail->send($customer->email, 'success-donation-ema');
 
        try {
             $customer = $plugin->customer->save($customer);
