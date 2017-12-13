@@ -5,8 +5,6 @@ use Yii;
 use Craft;
 use craft\db\Migration;
 
-use endurant\donationsfree\StripeDonation;
-
 class Install extends Migration
 {
     public $driver;

@@ -2,12 +2,11 @@
 namespace endurant\stripedonation\components\logger;
 
 use Craft;
-use endurant\donationsfree\records\Log as LogRecord;
-use endurant\donationsfree\models\Log;
-use endurant\donationsfree\components\Settings;
+use endurant\stripedonation\records\Log as LogRecord;
+use endurant\stripedonation\models\Log;
+use endurant\stripedonation\components\Settings;
 use PHPUnit\Framework\Error\Error;
 use Psr\Log\LogLevel;
-use yii\db\Exception;
 
 /**
  * General Logger
