@@ -55,14 +55,14 @@ class DonationService extends Component
         // sending email
         MailManager::$PLUGIN->mail->send($customer->email, 'success-donation');
 
-       try {
-            $customer = $plugin->customer->save($customer);
-            $card->customerId = $customer->id;
-            $card = $plugin->card->save($card);
-            $charge->cardId = $card->id;
-            $charge = $plugin->charge->save($charge);
-       } catch(DbDonationsPluginException $e) {
-           
-       }
+        try {
+             $customer = $plugin->customer->save($customer);
+             $card->customerId = $customer->id;
+             $card = $plugin->card->save($card);
+             $charge->cardId = $card->id;
+             $charge = $plugin->charge->save($charge);
+        } catch(DbDonationsPluginException $e) {
+
+        }
     }
 }
