@@ -49,8 +49,7 @@ class Install extends Migration
      */
     public function safeDown()
     {
-//        $this->removeTables();
-
+        $this->removeTables();
         return true;
     }
 
@@ -134,6 +133,8 @@ class Install extends Migration
                 'dateUpdated' => $this->date(),
                 'uid' => $this->text()
             ]);
+
+            $this->insertDonationsSettingsDefaultValue();
         }
     }
 
@@ -158,30 +159,11 @@ class Install extends Migration
 
     private function removeTables()
     {
-        if ($this->tableExists('stripe_donation_charge')) {
-            $this->dropTable('stripe_donation_charge');
-        }
-
-        if ($this->tableExists('stripe_donation_customer')) {
-            $this->dropTable('stripe_donation_customer');
-        }
-
-        if ($this->tableExists('stripe_donation_card')) {
-            $this->dropTable('stripe_donation_card');
-        }
-
-        if ($this->tableExists('stripe_donation_log')) {
-            $this->dropTable('stripe_donation_log');
-        }
-
-        if ($this->tableExists('stripe_donation_setting')) {
-            $this->dropTable('stripe_donation_setting');
-        }
+//        $this->dropTableIfExists('stripe_donation_setting');
     }
 
     private function insertDefaultData()
     {
-        $this->insertDonationsSettingsDefaultValue();
         $this->insertMailManagerTemplate();
     }
 
@@ -201,12 +183,16 @@ class Install extends Migration
 
     private function insertMailManagerTemplate()
     {
-        $this->insert('mailmanager_template', [
-            'name' => 'Success Donation Email',
-            'slug' => 'success-donation-email',
-            'subject' => 'Thank you for donation',
-            'template' => 'Thank you for donation.'
-        ]);
+        try {
+            $this->insert('mailmanager_template', [
+                'name' => 'Success Donation Email',
+                'slug' => 'success-donation',
+                'subject' => 'Thank you for donation',
+                'template' => 'Thank you for donation.'
+            ]);
+        } catch (\Exception $e) {
+            // test
+        }
     }
 
     private function tableExists($table)
