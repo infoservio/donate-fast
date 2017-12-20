@@ -8,19 +8,19 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace endurant\stripedonation\controllers;
+namespace infoservio\stripedonation\controllers;
 
 use Craft;
 use craft\web\Controller;
-use endurant\stripedonation\StripeDonation;
-use endurant\stripedonation\models\StripeDonationSetting;
+use infoservio\stripedonation\StripeDonation;
+use infoservio\stripedonation\models\StripeDonationSetting;
 
 /**
- * Donate Controller
+ * Settings Controller
  *
  * https://craftcms.com/docs/plugins/controllers
  *
- * @author    endurant
+ * @author    infoservio
  * @package   Donationsfree
  * @since     1.0.0
  */

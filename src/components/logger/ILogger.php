@@ -1,5 +1,5 @@
 <?php
-namespace endurant\stripedonation\components\logger;
+namespace infoservio\stripedonation\components\logger;
 
 interface ILogger
 {

@@ -1,19 +1,11 @@
 <?php
-/**
- * donations-free plugin for Craft CMS 3.x
- *
- * Free Braintree Donation System
- *
- * @link      https://endurant.org
- * @copyright Copyright (c) 2017 endurant
- */
 
-namespace endurant\stripedonation;
+namespace infoservio\stripedonation;
 
-use endurant\stripedonation\services\CustomerService;
-use endurant\stripedonation\components\httpClient\stripe\StripeHttpClient;
-use endurant\stripedonation\components\logger\Logger;
-use endurant\stripedonation\models\Settings;
+use infoservio\stripedonation\services\CustomerService;
+use infoservio\stripedonation\components\httpClient\stripe\StripeHttpClient;
+use infoservio\stripedonation\components\logger\Logger;
+use infoservio\stripedonation\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
@@ -24,13 +16,13 @@ use craft\events\RegisterUrlRulesEvent;
 use craft\events\RegisterCpNavItemsEvent;
 use craft\web\twig\variables\Cp;
 
-use endurant\stripedonation\services\CardService;
-use endurant\stripedonation\services\ChargeService;
-use endurant\stripedonation\services\DonationService;
-use endurant\stripedonation\services\DonationsSettingsService;
-use endurant\stripedonation\services\LogService;
-use endurant\stripedonation\services\PluginService;
-use endurant\stripedonation\services\StripeService;
+use infoservio\stripedonation\services\CardService;
+use infoservio\stripedonation\services\ChargeService;
+use infoservio\stripedonation\services\DonationService;
+use infoservio\stripedonation\services\DonationsSettingsService;
+use infoservio\stripedonation\services\LogService;
+use infoservio\stripedonation\services\PluginService;
+use infoservio\stripedonation\services\StripeService;
 use yii\base\Event;
 
 /**

@@ -1,5 +1,5 @@
 <?php
-namespace endurant\stripedonation\components;
+namespace infoservio\stripedonation\components;
 
 class Settings
 {

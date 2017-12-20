@@ -8,19 +8,19 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace endurant\stripedonation\services;
+namespace infoservio\stripedonation\services;
 
 use craft\base\Component;
 
-use endurant\stripedonation\errors\DbDonationsPluginException;
-use endurant\stripedonation\records\Card as CardRecord;
-use endurant\stripedonation\models\Card;
-use endurant\stripedonation\models\Log;
+use infoservio\stripedonation\errors\DbDonationsPluginException;
+use infoservio\stripedonation\records\Card as CardRecord;
+use infoservio\stripedonation\models\Card;
+use infoservio\stripedonation\models\Log;
 
 /**
  * Donate Service
  *
- * @author    endurant
+ * @author    infoservio
  * @package   Donationsfree
  * @since     1.0.0
  */

@@ -1,6 +1,6 @@
 <?php
 
-namespace endurant\stripedonation\models\forms;
+namespace infoservio\stripedonation\models\forms;
 
 use craft\base\Model;
 

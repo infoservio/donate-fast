@@ -1,16 +1,16 @@
 <?php
 
-namespace endurant\stripedonation\components\httpClient\stripe;
+namespace infoservio\stripedonation\components\httpClient\stripe;
 
-use endurant\stripedonation\StripeDonation;
+use infoservio\stripedonation\StripeDonation;
 use yii\base\Component;
 
 use Stripe\Customer as StripeCustomer;
 use Stripe\Charge as StripeCharge;
 use Stripe\Stripe;
 
-use endurant\stripedonation\models\Customer;
-use endurant\stripedonation\models\Charge;
+use infoservio\stripedonation\models\Customer;
+use infoservio\stripedonation\models\Charge;
 
 class StripeHttpClient extends Component
 {

@@ -8,12 +8,12 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace endurant\stripedonation\services;
+namespace infoservio\stripedonation\services;
 
 use craft\base\Component;
 
-use endurant\stripedonation\records\StripeDonationSetting as StripeDonationSettingRecord;
-use endurant\stripedonation\models\StripeDonationSetting;
+use infoservio\stripedonation\records\StripeDonationSetting as StripeDonationSettingRecord;
+use infoservio\stripedonation\models\StripeDonationSetting;
 
 /**
  * Donate Service
@@ -24,7 +24,7 @@ use endurant\stripedonation\models\StripeDonationSetting;
  *
  * https://craftcms.com/docs/plugins/services
  *
- * @author    endurant
+ * @author    infoservio
  * @package   Donationsfree
  * @since     1.0.0
  */

@@ -1,14 +1,6 @@
 <?php
-/**
- * donations-free plugin for Craft CMS 3.x
- *
- * Free Braintree Donation System
- *
- * @link      https://endurant.org
- * @copyright Copyright (c) 2017 endurant
- */
 
-namespace endurant\stripedonation\assetbundles\prism;
+namespace infoservio\stripedonation\assetbundles\prism;
 
 use Craft;
 use craft\web\AssetBundle;
@@ -28,7 +20,7 @@ use craft\web\assets\cp\CpAsset;
  *
  * http://www.yiiframework.com/doc-2.0/guide-structure-assets.html
  *
- * @author    endurant
+ * @author    infoservio
  * @package   Donationsfree
  * @since     1.0.0
  */
@@ -43,7 +35,7 @@ class PrismAssetBundle extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = '@endurant/stripedonation/assetbundles/prism/dist/';
+        $this->sourcePath = '@infoservio/stripedonation/assetbundles/prism/dist/';
 
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered

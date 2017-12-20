@@ -1,21 +1,13 @@
 <?php
-/**
- * donations-free plugin for Craft CMS 3.x
- *
- * Free Braintree Donation System
- *
- * @link      https://endurant.org
- * @copyright Copyright (c) 2017 endurant
- */
 
-namespace endurant\stripedonation\models;
+namespace infoservio\stripedonation\models;
 
 use craft\base\Model;
 
 /**
  * Settings Model
  *
- * @author    endurant
+ * @author    infoservio
  * @package   Donationsfree
  * @since     1.0.0
  */

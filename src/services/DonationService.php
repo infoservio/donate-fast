@@ -8,23 +8,22 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace endurant\stripedonation\services;
-
-use endurant\mailmanager\MailManager;
-use endurant\stripedonation\errors\StripeDonationsPluginException;
-use endurant\stripedonation\StripeDonation;
+namespace infoservio\stripedonation\services;
 
 use craft\base\Component;
 
-use endurant\stripedonation\errors\DbDonationsPluginException;
-use endurant\stripedonation\models\Customer;
-use endurant\stripedonation\models\Card;
-use endurant\stripedonation\models\Charge;
+use infoservio\mailmanager\MailManager;
+use infoservio\stripedonation\errors\StripeDonationsPluginException;
+use infoservio\stripedonation\StripeDonation;
+use infoservio\stripedonation\errors\DbDonationsPluginException;
+use infoservio\stripedonation\models\Customer;
+use infoservio\stripedonation\models\Card;
+use infoservio\stripedonation\models\Charge;
 
 /**
  * Donation Service
  *
- * @author    endurant
+ * @author    infoservio
  * @package   Donationsfree
  * @since     1.0.0
  */

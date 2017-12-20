@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace endurant\stripedonation\records;
+namespace infoservio\stripedonation\records;
 
 use craft\db\ActiveRecord;
 

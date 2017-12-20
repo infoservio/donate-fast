@@ -8,23 +8,22 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace endurant\stripedonation\services;
+namespace infoservio\stripedonation\services;
 
 use craft\base\Component;
 
-use endurant\stripedonation\components\httpClient\stripe\StripeHttpClient;
-use endurant\stripedonation\StripeDonation;
-
-use endurant\stripedonation\errors\StripeDonationsPluginException;
-use endurant\stripedonation\models\Customer;
-use endurant\stripedonation\models\Card;
-use endurant\stripedonation\models\Charge;
-use endurant\stripedonation\models\Log;
+use infoservio\stripedonation\components\httpClient\stripe\StripeHttpClient;
+use infoservio\stripedonation\StripeDonation;
+use infoservio\stripedonation\errors\StripeDonationsPluginException;
+use infoservio\stripedonation\models\Customer;
+use infoservio\stripedonation\models\Card;
+use infoservio\stripedonation\models\Charge;
+use infoservio\stripedonation\models\Log;
 
 /**
  * Stripe Service
  *
- * @author    endurant
+ * @author    infoservio
  * @package   Donationsfree
  * @since     1.0.0
  */

@@ -1,8 +1,9 @@
 <?php
 
-namespace endurant\stripedonation\errors;
-use endurant\stripedonation\services\LogService;
-use endurant\stripedonation\StripeDonation;
+namespace infoservio\stripedonation\errors;
+
+use infoservio\stripedonation\services\LogService;
+use infoservio\stripedonation\StripeDonation;
 
 class DonationsPluginException extends \Exception
 {

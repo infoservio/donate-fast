@@ -8,14 +8,14 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace endurant\stripedonation\services;
+namespace infoservio\stripedonation\services;
 
 use craft\base\Component;
 
-use endurant\stripedonation\errors\DbDonationsPluginException;
-use endurant\stripedonation\records\Customer as CustomerRecord;
-use endurant\stripedonation\models\Customer;
-use endurant\stripedonation\models\Log;
+use infoservio\stripedonation\errors\DbDonationsPluginException;
+use infoservio\stripedonation\records\Customer as CustomerRecord;
+use infoservio\stripedonation\models\Customer;
+use infoservio\stripedonation\models\Log;
 
 /**
  * Donate Service
@@ -26,7 +26,7 @@ use endurant\stripedonation\models\Log;
  *
  * https://craftcms.com/docs/plugins/services
  *
- * @author    endurant
+ * @author    infoservio
  * @package   Donationsfree
  * @since     1.0.0
  */

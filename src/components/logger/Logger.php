@@ -1,10 +1,10 @@
 <?php
-namespace endurant\stripedonation\components\logger;
+namespace infoservio\stripedonation\components\logger;
 
 use Craft;
-use endurant\stripedonation\records\Log as LogRecord;
-use endurant\stripedonation\models\Log;
-use endurant\stripedonation\components\Settings;
+use infoservio\stripedonation\records\Log as LogRecord;
+use infoservio\stripedonation\models\Log;
+use infoservio\stripedonation\components\Settings;
 use PHPUnit\Framework\Error\Error;
 use Psr\Log\LogLevel;
 

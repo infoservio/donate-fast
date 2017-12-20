@@ -1,5 +1,5 @@
 <?php
-namespace endurant\stripedonation\migrations;
+namespace infoservio\stripedonation\migrations;
 
 use Yii;
 use Craft;

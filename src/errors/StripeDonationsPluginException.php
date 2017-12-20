@@ -1,8 +1,8 @@
 <?php
 
-namespace endurant\stripedonation\errors;
+namespace infoservio\stripedonation\errors;
 
-use endurant\stripedonation\models\Log;
+use infoservio\stripedonation\models\Log;
 
 class StripeDonationsPluginException extends DonationsPluginException
 {

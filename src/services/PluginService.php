@@ -8,15 +8,15 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace endurant\stripedonation\services;
+namespace infoservio\stripedonation\services;
 
 use craft\base\Component;
-use endurant\stripedonation\records\StripeDonationSetting;
+use infoservio\stripedonation\records\StripeDonationSetting;
 
 /**
  * Plugin Service
  *
- * @author    endurant
+ * @author    infoservio
  * @package   Donationsfree
  * @since     1.0.0
  */

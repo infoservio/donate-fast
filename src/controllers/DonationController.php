@@ -8,24 +8,21 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace endurant\stripedonation\controllers;
+namespace infoservio\stripedonation\controllers;
 
-use endurant\mailmanager\MailManager;
-use endurant\stripedonation\StripeDonation;
+use infoservio\stripedonation\StripeDonation;
 
 use Craft;
 use craft\web\Controller;
-use craft\helpers\ArrayHelper;
-use endurant\stripedonation\assetbundles\bootstrap\StripeDonationBootstrapAssetBundle;
-use endurant\stripedonation\errors\DonationsPluginException;
-use endurant\stripedonation\models\forms\DonateForm;
 
-use endurant\stripedonation\records\StripeDonationSetting;
+use infoservio\stripedonation\assetbundles\bootstrap\StripeDonationBootstrapAssetBundle;
+use infoservio\stripedonation\errors\DonationsPluginException;
+use infoservio\stripedonation\records\StripeDonationSetting;
 
 /**
- * Donate Controller
+ * Donation Controller
  *
- * @author    endurant
+ * @author    infoservio
  * @package   Donationsfree
  * @since     1.0.0
  */
