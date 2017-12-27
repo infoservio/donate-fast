@@ -72,6 +72,7 @@ class Install extends Migration
                 'currency' => $this->string(10),
                 'projectId' => $this->integer()->null(),
                 'projectName' => $this->string(255)->null(),
+                'clientIp' => $this->string(30),
                 'fraudDetails' => $this->text()->null(),
                 'failureCode' => $this->string(255)->null(),
                 'failureMessage' => $this->text()->null(),
@@ -181,6 +182,26 @@ class Install extends Migration
         $this->insert('stripe_donation_setting', [
             'name' => 'errorMessage',
             'value' => 'Error Message'
+        ]);
+
+        $this->insert('stripe_donation_setting', [
+            'name' => 'companyName',
+            'value' => 'Non-profit company Name'
+        ]);
+
+        $this->insert('stripe_donation_setting', [
+            'name' => 'companyTelephone',
+            'value' => 'Telephone number'
+        ]);
+
+        $this->insert('stripe_donation_setting', [
+            'name' => 'companyAddress',
+            'value' => 'Address'
+        ]);
+
+        $this->insert('stripe_donation_setting', [
+            'name' => 'companyEmail',
+            'value' => 'company@email.com'
         ]);
     }
 

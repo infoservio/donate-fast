@@ -12,8 +12,10 @@ namespace infoservio\stripedonation\controllers;
 
 use Craft;
 use craft\web\Controller;
+use infoservio\mailmanager\MailManager;
+use infoservio\stripedonation\models\StripeDonationSetting;
 use infoservio\stripedonation\records\Charge;
-use infoservio\stripedonation\services\ChargeService;
+use infoservio\mailmanager\records\Template as TemplateRecord;
 use yii\web\BadRequestHttpException;
 
 /**
@@ -78,11 +80,61 @@ class InvoiceController extends Controller
             return $this->redirect('stripe-donation/not-found');
         }
 
-        $template = '';
+        $card = $record->getCard();
+        $customer = $card->getCustomer();
+        $settings = StripeDonationSetting::getSettingsArr();
+        $template = TemplateRecord::getBySlug('success-donation');
+        $parsedTemplate = MailManager::$PLUGIN->templateParser->parse($template->template, [
+            'companyName' => $settings['companyName'],
+            'companyAddress' => $settings['companyAddress'],
+            'companyTelephone' => $settings['companyTelephone'],
+            'companyEmail' => $settings['companyEmail'],
+            'userName' => 'Not Found',
+            'userAddress' => 'Not Found',
+            'userEmail' => $customer->email,
+            'invoiceId' => $record->chargeId,
+            'invoiceDescription' => $record->projectName,
+            'invoiceSum' => $record->amount / 100,
+            'invoiceDate' => $record->created
+        ]);
 
         return $this->renderTemplate('stripe-donation/invoice/view', [
-            'template' => $template,
-            'record' => $record
+            'template' => $parsedTemplate
         ]);
+    }
+
+    /**
+     * @throws \yii\web\BadRequestHttpException
+     */
+    public function actionSend()
+    {
+        $this->requirePostRequest();
+
+        $id = Craft::$app->request->post('id');
+        if (!$id) {
+            throw new BadRequestHttpException('Charge ID not found');
+        }
+        $record = Charge::getById($id);
+
+        if (!$record) {
+            return $this->redirect('stripe-donation/not-found');
+        }
+
+        $card = $record->getCard();
+        $customer = $card->getCustomer();
+        $settings = StripeDonationSetting::getSettingsArr();
+        return MailManager::$PLUGIN->mail->send($customer->email, 'success-donation', [
+            'companyName' => $settings['companyName'],
+            'companyAddress' => $settings['companyAddress'],
+            'companyTelephone' => $settings['companyTelephone'],
+            'companyEmail' => $settings['companyEmail'],
+            'userName' => 'Not Found',
+            'userAddress' => 'Not Found',
+            'userEmail' => $customer->email,
+            'invoiceId' => $record->chargeId,
+            'invoiceDescription' => $record->projectName,
+            'invoiceSum' => $record->amount / 100,
+            'invoiceDate' => $record->created
+        ], $record->chargeId);
     }
 }

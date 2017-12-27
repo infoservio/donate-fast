@@ -209,7 +209,7 @@
     <div id="company">
         <h2 class="name">{{companyName}}</h2>
         <div>{{companyAddress}}</div>
-        <div>{{companyNumber}}</div>
+        <div>{{companyTelephone}}</div>
         <div><a href="mailto:{{companyEmail}}">{{companyEmail}}</a></div>
     </div>
     </div>
@@ -239,14 +239,14 @@
         <tr>
             <td class="no">01</td>
             <td class="desc"><h3>Donation</h3>{{invoiceDescription}}</td>
-            <td class="total">{{invoiceSum}}</td>
+            <td class="total">${{invoiceSum}}</td>
         </tr>
         </tbody>
         <tfoot>
         <tr>
             <td colspan="1"></td>
             <td colspan="1">GRAND TOTAL</td>
-            <td>{{invoiceSum}}</td>
+            <td>${{invoiceSum}}</td>
         </tr>
         </tfoot>
     </table>

@@ -25,6 +25,7 @@ class Charge extends Model
     public $currency;
     public $projectId;
     public $projectName;
+    public $clientIp;
     public $fraudDetails;
     public $failureCode;
     public $failureMessage;

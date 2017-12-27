@@ -119,10 +119,12 @@ class StripeDonation extends Plugin
             UrlManager::class,
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['stripe-donation'] = 'stripe-donation/settings/settings';
+                $event->rules['stripe-donation'] = 'stripe-donation/invoice/index';
                 $event->rules['stripe-donation/settings'] = 'stripe-donation/settings/settings';
                 $event->rules['stripe-donation/donation-form'] = 'stripe-donation/settings/donation-form';
                 $event->rules['stripe-donation/invoice'] = 'stripe-donation/invoice/index';
+                $event->rules['stripe-donation/invoice/view'] = 'stripe-donation/invoice/view';
+                $event->rules['stripe-donation/invoice/send'] = 'stripe-donation/invoice/send';
             }
         );
 

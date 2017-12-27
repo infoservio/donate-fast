@@ -25,6 +25,7 @@ use infoservio\mailmanager\records\Mail;
  * @property string $currency
  * @property integer $projectId
  * @property string $projectName
+ * @property string $clientIp
  * @property string $fraudDetails
  * @property string $failureCode
  * @property string $failureMessage
@@ -71,9 +72,12 @@ class Charge extends ActiveRecord
         return new self($obj);
     }
 
+    /**
+     * @return array|null|\yii\db\ActiveRecord
+     */
     public function getCard()
     {
-        return self::find()->where(['id' => $this->cardId])->one();
+        return Card::find()->where(['id' => $this->cardId])->one();
     }
 
     public function getMail()

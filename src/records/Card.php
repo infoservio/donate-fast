@@ -43,6 +43,6 @@ class Card extends ActiveRecord
 
     public function getCustomer()
     {
-        return self::find()->where(['id' => $this->customerId])->one();
+        return Customer::find()->where(['id' => $this->customerId])->one();
     }
 }

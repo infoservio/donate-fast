@@ -96,9 +96,7 @@ class DonationController extends Controller
 //        die(json_encode($post));
         try {
             StripeDonation::$PLUGIN->donation->donate($post);
-        } catch (DonationsPluginException $e) {
-            return $this->redirect('/actions/stripe-donation/donation/error');
-        } catch (\Error $e) {
+        } catch (\Exception $e) {
             return $this->redirect('/actions/stripe-donation/donation/error');
         }
 

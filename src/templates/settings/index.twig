@@ -20,6 +20,42 @@
     <form method="post" action="" id="settings-form">
         {#<input hidden name="_csrf" />#}
         <div class="form-group">
+            <label for="inputCompanyName">Non Profit Company Name</label>
+            <small id="companyNameHelp" class="form-text text-muted">This company name will be added to the invoice for user after donation.'</small>
+            <input id="companyName" name="companyName" class="form-control" aria-describedby="companyNameHelp"
+                   value="{{ settings['companyName'] }}"
+                   placeholder="Enter company name"
+                   data-parsley-required
+            />
+        </div>
+        <div class="form-group">
+            <label for="inputCompanyEmail">Non Profit Company Email</label>
+            <small id="companyEmailHelp" class="form-text text-muted">This company email will be added to the invoice for user after donation.'</small>
+            <input id="companyEmail" name="companyEmail" class="form-control" aria-describedby="companyEmailHelp"
+                   value="{{ settings['companyEmail'] }}"
+                   placeholder="Enter company email"
+                   data-parsley-required
+            />
+        </div>
+        <div class="form-group">
+            <label for="inputCompanyTelephone">Non Profit Company Telephone</label>
+            <small id="companyTelephoneHelp" class="form-text text-muted">This company telephone will be added to the invoice for user after donation.'</small>
+            <input id="companyTelephone" name="companyTelephone" class="form-control" aria-describedby="companyTelephoneHelp"
+                   value="{{ settings['companyTelephone'] }}"
+                   placeholder="Enter company telephone"
+                   data-parsley-required
+            />
+        </div>
+        <div class="form-group">
+            <label for="inputCompanyAddress">Non Profit Company Address</label>
+            <small id="companyAddressHelp" class="form-text text-muted">This company address will be added to the invoice for user after donation.'</small>
+            <input id="companyAddress" name="companyAddress" class="form-control" aria-describedby="companyAddressHelp"
+                   value="{{ settings['companyAddress'] }}"
+                   placeholder="Enter company address"
+                   data-parsley-required
+            />
+        </div>
+        <div class="form-group">
             <label for="inputTemplateName">Success Message</label>
             <small id="nameHelp" class="form-text text-muted">Success message for user after successfull donation.</small>
             <textarea name="successMessage" type="text" class="form-control" id="successText" aria-describedby="nameHelp"

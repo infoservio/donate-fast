@@ -37,12 +37,15 @@
                 <td>{{ record.chargeId }}</td>
                 <td>{{ customer.email }}</td>
                 <td>{{ record.projectId }} - {{ record.projectName }}</td>
-                <td>{{ record.amount }}</td>
+                <td>$ {{ (record.amount / 100)|number_format(2, '.', ',') }}</td>
                 <td>{{ record.created }}</td>
-                <td>{{ mail.isOpened ? openedIcon : droppedIcon }}</td>
+                <td><img src="{{ mail ? (mail.isOpened ? openedIcon : deliveredIcon) : droppedIcon }}"
+                         title="{{ mail ? (mail.isOpened ? 'Opened' : 'Delivered') : 'Dropped' }}"
+                         height="30"
+                    style="margin-left: 20px"/></td>
                 <td class="icons">
-                    <a href="/admin/stripe-donation/invoice/view?id={{ record.id }}" class="glyphicon glyphicon-eye-open" title="View"></a>
-                    <a href="/admin/stripe-donation/invoice/send?id={{ record.id }}" class="glyphicon glyphicon-envelope send-email" title="Send"></a>
+                    <a href="/admin/stripe-donation/invoice/view?id={{ record.id }}" class="glyphicon glyphicon-eye-open invoice-icon" title="View"></a>
+                    <a href="/admin/stripe-donation/invoice/send?id={{ record.id }}" class="glyphicon glyphicon-envelope send-email invoice-icon"  value="{{ record.id }}" title="Send"></a>
                 </td>
             </tr>
         {% endfor %}

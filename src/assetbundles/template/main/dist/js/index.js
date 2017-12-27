@@ -7,8 +7,8 @@ $(document).ready(function() {
         if (confirm("Are you sure?")) {
             $.ajax({
                 type: "POST",
-                url: '/admin/billion-global-server/reminder/send',
-                data: { email: $(this).attr('value')}
+                url: '/admin/stripe-donation/invoice/send',
+                data: { id: $(this).attr('value')}
             });
         }
         return false;
