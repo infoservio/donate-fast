@@ -40,4 +40,9 @@ class Card extends ActiveRecord
     {
         return '{{stripe_donation_card}}';
     }
+
+    public function getCustomer()
+    {
+        return self::find()->where(['id' => $this->customerId])->one();
+    }
 }

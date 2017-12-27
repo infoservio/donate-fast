@@ -52,7 +52,17 @@ class DonationService extends Component
         $stripeService->createCharge($charge, $card, $customer);
 
         // sending email
-        MailManager::$PLUGIN->mail->send($customer->email, 'success-donation');
+        MailManager::$PLUGIN->mail->send($customer->email, 'success-donation', [
+            'companyName' => '',
+            'companyTelephone' => '',
+            'companyEmail' => '',
+            'userName' => '',
+            'userAddress' => '',
+            'userEmail' => '',
+            'invoiceId' => '',
+            'invoiceDescription' => '',
+            'invoiceSum' => ''
+        ], $charge->chargeId);
 
         try {
              $customer = $plugin->customer->save($customer);

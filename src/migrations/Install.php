@@ -7,6 +7,8 @@ use craft\db\Migration;
 
 class Install extends Migration
 {
+    private $_successDonationTemplatePath = __DIR__ . '/../assets/templates/success-donation.html';
+
     public $driver;
 
     // Public Methods
@@ -184,12 +186,14 @@ class Install extends Migration
 
     private function insertMailManagerTemplate()
     {
+        $content = file_get_contents($this->_successDonationTemplatePath);
+
         try {
             $this->insert('mailmanager_template', [
                 'name' => 'Success Donation Email',
                 'slug' => 'success-donation',
-                'subject' => 'Thank you for donation',
-                'template' => 'Thank you for donation.'
+                'subject' => 'Thank you for your donation.',
+                'template' => $content
             ]);
         } catch (\Exception $e) {
             // test

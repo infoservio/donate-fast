@@ -1,0 +1,51 @@
+{% extends "_layouts/cp" %}
+{% do view.registerAssetBundle("infoservio\\stripedonation\\assetbundles\\sidebar\\SidebarAssetBundle") %}
+{% do view.registerAssetBundle("infoservio\\stripedonation\\assetbundles\\template\\main\\TemplateAssetBundle") %}
+{% set title = "Invoice Manager"|t('app') %}
+{% set deliveredIcon = view.getAssetManager().getPublishedUrl('@infoservio/stripedonation/assetbundles/template/main/dist', true) ~ '/img/delivered.png' %}
+{% set droppedIcon = view.getAssetManager().getPublishedUrl('@infoservio/stripedonation/assetbundles/template/main/dist', true) ~ '/img/dropped.png' %}
+{% set openedIcon = view.getAssetManager().getPublishedUrl('@infoservio/stripedonation/assetbundles/template/main/dist', true) ~ '/img/opened.png' %}
+{% block sidebar %}
+    <div class="sidebar-header">
+        <h3>Sidebar Menu</h3>
+    </div>
+
+    <!-- Sidebar Links -->
+    <ul class="list-unstyled components">
+        <li class="active sidebar-item"><a href="/admin/stripe-donation/invoice">Invoice Manager <i class="sidebar-icon material-icons">keyboard_arrow_right</i></a></li>
+        <li class="sidebar-item"><a href="/admin/stripe-donation/settings">Settings Manager</a></li>
+        <li class="sidebar-item"><a href="/admin/stripe-donation/donation-form">Using Stripe Donation Form</a></li>
+    </ul>
+{% endblock %}
+{% block content %}
+    <table id="invoice-table" class="table table-hover">
+        <thead>
+        <tr>
+            {% for col in columns %}
+                <th>{{ col }}</th>
+            {% endfor %}
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for record in records %}
+            <tr>
+                <th scope="row">{{ record.id }}</th>
+                {% set card = record.getCard() %}
+                {% set customer = card.getCustomer() %}
+                {% set mail = record.getMail() %}
+                <td>{{ record.chargeId }}</td>
+                <td>{{ customer.email }}</td>
+                <td>{{ record.projectId }} - {{ record.projectName }}</td>
+                <td>{{ record.amount }}</td>
+                <td>{{ record.created }}</td>
+                <td>{{ mail.isOpened ? openedIcon : droppedIcon }}</td>
+                <td class="icons">
+                    <a href="/admin/stripe-donation/invoice/view?id={{ record.id }}" class="glyphicon glyphicon-eye-open" title="View"></a>
+                    <a href="/admin/stripe-donation/invoice/send?id={{ record.id }}" class="glyphicon glyphicon-envelope send-email" title="Send"></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

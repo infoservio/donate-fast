@@ -106,13 +106,13 @@ class StripeDonation extends Plugin
         });
 
         // Register our site routes
-//        Event::on(
-//            UrlManager::class,
-//            UrlManager::EVENT_REGISTER_SITE_URL_RULES,
-//            function (RegisterUrlRulesEvent $event) {
-//                $event->rules['donations-free/donation/pay'] = '/actions/donations-free/donation/pay';
-//            }
-//        );
+        Event::on(
+            UrlManager::class,
+            UrlManager::EVENT_REGISTER_SITE_URL_RULES,
+            function (RegisterUrlRulesEvent $event) {
+                $event->rules['stripe-donation/invoice/view'] = 'stripe-donation/invoice/view';
+            }
+        );
 
         // Register our CP routes
         Event::on(
@@ -122,6 +122,7 @@ class StripeDonation extends Plugin
                 $event->rules['stripe-donation'] = 'stripe-donation/settings/settings';
                 $event->rules['stripe-donation/settings'] = 'stripe-donation/settings/settings';
                 $event->rules['stripe-donation/donation-form'] = 'stripe-donation/settings/donation-form';
+                $event->rules['stripe-donation/invoice'] = 'stripe-donation/invoice/index';
             }
         );
 

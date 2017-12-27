@@ -11,6 +11,7 @@
 namespace infoservio\stripedonation\records;
 
 use craft\db\ActiveRecord;
+use infoservio\mailmanager\records\Mail;
 
 /**
  * Charge Record
@@ -44,5 +45,39 @@ class Charge extends ActiveRecord
     public static function tableName()
     {
         return '{{stripe_donation_charge}}';
+    }
+
+    public static function getColumns()
+    {
+        return ['ID', 'Charge ID', 'Email', 'Project', 'Amount', 'Created', 'Email Status'];
+    }
+
+    public static function getAll()
+    {
+        return self::find()->orderBy('id DESC')->all();
+    }
+
+    public static function getById(int $id, bool $returnActiveRecordObj = false)
+    {
+        $obj = self::find()->where(['id' => $id])->one();
+        if (!$obj) {
+            return false;
+        }
+
+        if ($returnActiveRecordObj) {
+            return $obj;
+        }
+
+        return new self($obj);
+    }
+
+    public function getCard()
+    {
+        return self::find()->where(['id' => $this->cardId])->one();
+    }
+
+    public function getMail()
+    {
+        return Mail::find()->where(['customId' => $this->chargeId])->one();
     }
 }
