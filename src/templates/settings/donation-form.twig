@@ -17,20 +17,79 @@
 {% block content %}
     <h1>Donate Form Example</h1>
     <p>Please hover over the box below and select the 'copy' icon to the right side of each box.  Paste this code in your page to display your donation form.  You can change the word <code class="language-html">value="Donate"</code> to replace the text on the Donate button.</p>
-    <pre class="line-numbers">
+    <pre>
         <code class="language-html">
-        {{ '<div class="entry-footer" style="text-align: right">
-			<form id="donate-form" action="/actions/stripe-donation/donation/donate" method="post">
-				<span class="dollar">$</span><input id="amount" type="number" name="amount" class="donate-field" placeholder="Enter amount here..." min="0" />
-				<input type="hidden" name="projectId" value="1"> <!-- Please fill this hidden field to identificate donation for project -->
-				<input type="hidden" name="projectName" value="Your project name"> <!-- Please fill this hidden field to identificate donation for project -->
-				<input id="donate-btn" class="btn" value="Donate" />
-			</form>
-		</div>'| escape('html') }}
+        {{
+        '<form action="/actions/stripe-donation/donation/donate" method="post">
+          <input type="hidden" name="projectId" value="1">
+          <input type="hidden" name="projectName" value="40authors manifesto">
+          <input type="hidden" name="fixedAmount" value="5000">
+          <span class="dollar">$</span><input id="amount" type="number" name="amount" class="donate-field" placeholder="Enter amount here..." min="0" />
+          <input id="donate-btn" class="btn" value="Donate" />
+        </form>'| escape('html') }}
+        </code>
+    </pre>
+    <pre>
+        <code class="language-javascript">
+            {{ '<script src="https://checkout.stripe.com/checkout.js"></script>
+   var handler = StripeCheckout.configure({
+           key: "pk_test_uBbZUnxUMQ8BPLLMI2aSCoct",
+           locale: "auto",
+           name: "Sand Castles United",
+           description: "One-time donation",
+           token: function(token) {
+                $("input#stripeToken").val(token.id);
+                $("form").submit();
+           }
+   });
+
+   $("#amount").keypress(function (e) {
+       var keyCode = e.charCode || e.keyCode;
+       if (keyCode == 45 || keyCode == 101) {
+            e.preventDefault();
+            return false;
+       }
+   });
+
+   $("#donate-btn").click((e) => {
+        if (!validate()) {
+           return false;
+        }
+        e.preventDefault();
+
+        $("#error_explanation").html("");
+
+        var amount = $("input#amount").val();
+        amount = amount.replace(/\$/g, "").replace(/\,/g, "");
+        amount = parseFloat(amount);
+
+        if (isNaN(amount)) {
+           $("#error_explanation").html("<p>Please enter a valid amount in USD ($).</p>");
+        } else if (amount < 5.00) {
+            $("#error_explanation").html("<p>Donation amount must be at least $5.</p>");
+        } else {
+            amount = amount * 100; // Needs to be an integer!
+            handler.open({
+                amount: Math.round(amount)
+            })
+        }
+   });
+
+   function validate() {
+        if ($("#amount").val() <= 0 || !$("#amount").val()) {
+            $("#amount").addClass("error");
+            return false;
+        }
+
+        $("#amount").removeClass("error");
+
+        return true;
+   }' }}
         </code>
     </pre>
     <p>Below is code to copy paste into your CSS file</p>
-    <pre class="line-numbers"><code class="language-css">       .dollar {
+    <pre><code class="language-css">
+            .dollar {
             font-size: 28;
             margin-right: 10px
         }

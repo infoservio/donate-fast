@@ -24,6 +24,9 @@ class Install extends Migration
      */
     public function safeUp()
     {
+        // install Mail Manager Plugin
+        Craft::$app->getPlugins()->installPlugin('mail-manager');
+
         $this->createTables();
         // $this->createIndexes();
 //        $this->addForeignKeys();
