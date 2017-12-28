@@ -1,6 +1,6 @@
 {
     "name": "infoservio/stripe-donation",
-    "description": "Free Stripe Donation Plugin",
+    "description": "Donate Fast",
     "type": "craft-plugin",
     "version": "1.0.0",
     "keywords": [
@@ -40,7 +40,7 @@
         }
     },
     "extra": {
-        "name": "Stripe Donation",
+        "name": "Donate Fast",
         "handle": "stripe-donation",
         "schemaVersion": "1.0.0",
         "hasCpSettings": true,
