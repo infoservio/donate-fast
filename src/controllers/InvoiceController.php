@@ -12,10 +12,12 @@ namespace infoservio\stripedonation\controllers;
 
 use Craft;
 use craft\web\Controller;
+use Faker\Provider\Base;
 use infoservio\mailmanager\MailManager;
 use infoservio\stripedonation\models\StripeDonationSetting;
 use infoservio\stripedonation\records\Charge;
 use infoservio\mailmanager\records\Template as TemplateRecord;
+use infoservio\stripedonation\StripeDonation;
 use yii\web\BadRequestHttpException;
 
 /**
@@ -27,7 +29,7 @@ use yii\web\BadRequestHttpException;
  * @package   Donationsfree
  * @since     1.0.0
  */
-class InvoiceController extends Controller
+class InvoiceController extends BaseController
 {
     // Protected Properties
     // =========================================================================
@@ -42,14 +44,6 @@ class InvoiceController extends Controller
     // Public Methods
     // =========================================================================
 
-    public function beforeAction($action)
-    {
-        // ...set `$this->enableCsrfValidation` here based on some conditions...
-        // call parent method that will check CSRF if such property is true.
-        $this->enableCsrfValidation = false;
-        return parent::beforeAction($action);
-    }
-
     /**
      * @return \yii\web\Response
      */
@@ -60,6 +54,7 @@ class InvoiceController extends Controller
         return $this->renderTemplate('stripe-donation/invoice/index', [
             'columns' => $columns,
             'records' => $records,
+            'isUserHelpUs' => $this->isUserHelpUs,
             'buttons' => ['view', 'send']
         ]);
     }
@@ -99,7 +94,8 @@ class InvoiceController extends Controller
         ]);
 
         return $this->renderTemplate('stripe-donation/invoice/view', [
-            'template' => $parsedTemplate
+            'template' => $parsedTemplate,
+            'isUserHelpUs' => $this->isUserHelpUs
         ]);
     }
 

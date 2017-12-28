@@ -37,3 +37,13 @@
     required: true
 })
 }}
+
+{{ forms.checkbox({
+    label: 'Help us improve our product',
+    instructions: 'You can help us improve our product. Be responsible user.',
+    id: 'helpUsImproveOurProduct',
+    name: 'helpUsImproveOurProduct',
+    checked: settings['helpUsImproveOurProduct']
+})
+}}
+

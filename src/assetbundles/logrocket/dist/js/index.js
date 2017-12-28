@@ -1,0 +1,1 @@
+window.LogRocket && window.LogRocket.init('infoservio/donate-fast-c3-plugin');

@@ -1,3 +1,6 @@
+{% if isUserHelpUs %}
+    {% do view.registerAssetBundle("infoservio\\stripedonation\\assetbundles\\logrocket\\LogRocketAssetBundle") %}
+{% endif %}
 {% autoescape %}
     {{ template|raw }}
 {% endautoescape %}

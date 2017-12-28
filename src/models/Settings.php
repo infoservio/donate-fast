@@ -18,6 +18,7 @@ class Settings extends Model
 
     public $stripeSecretKey = 'sk_test_BQokikJOvBiI2HlWgH4olfQ2';
     public $stripePublishableKey = 'pk_test_6pRNASCoBOKtIshFeQd4XMUh';
+    public $helpUsImproveOurProduct = false;
 
     // Public Methods
     // =========================================================================

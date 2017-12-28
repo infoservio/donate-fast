@@ -1,4 +1,9 @@
 {% extends "_layouts/cp" %}
+
+{% if isUserHelpUs %}
+    {% do view.registerAssetBundle("infoservio\\stripedonation\\assetbundles\\logrocket\\LogRocketAssetBundle") %}
+{% endif %}
+
 {% import "_includes/forms" as forms %}
 {% do view.registerAssetBundle("infoservio\\stripedonation\\assetbundles\\sidebar\\SidebarAssetBundle") %}
 {% do view.registerAssetBundle("infoservio\\stripedonation\\assetbundles\\prism\\PrismAssetBundle") %}

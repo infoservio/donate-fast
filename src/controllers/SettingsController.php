@@ -24,7 +24,7 @@ use infoservio\stripedonation\models\StripeDonationSetting;
  * @package   Donationsfree
  * @since     1.0.0
  */
-class SettingsController extends Controller
+class SettingsController extends BaseController
 {
     // Protected Properties
     // =========================================================================
@@ -36,17 +36,6 @@ class SettingsController extends Controller
      */
     protected $allowAnonymous = [];
 
-    // Public Methods
-    // =========================================================================
-
-    public function beforeAction($action)
-    {
-        // ...set `$this->enableCsrfValidation` here based on some conditions...
-        // call parent method that will check CSRF if such property is true.
-        $this->enableCsrfValidation = false;
-        return parent::beforeAction($action);
-    }
-
     public function actionSettings()
     {
         if ($post = Craft::$app->request->post()) {
@@ -56,12 +45,15 @@ class SettingsController extends Controller
 
         $settings = StripeDonationSetting::getSettingsArr();
         return $this->renderTemplate('stripe-donation/settings/index', [
-            'settings' => $settings
+            'settings' => $settings,
+            'isUserHelpUs' => $this->isUserHelpUs
         ]);
     }
 
     public function actionDonationForm()
     {
-        return $this->renderTemplate('stripe-donation/settings/donation-form');
+        return $this->renderTemplate('stripe-donation/settings/donation-form', [
+            'isUserHelpUs' => $this->isUserHelpUs
+        ]);
     }
 }
