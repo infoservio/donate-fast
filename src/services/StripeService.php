@@ -68,12 +68,13 @@ class StripeService extends Component
      * @param Charge $charge
      * @param Card $card
      * @param Customer $customer
+     * @param bool $sendStripeEmailReceipt
      * @return mixed
      * @throws StripeDonationsPluginException
      */
-    public function createCharge(Charge &$charge, Card &$card, Customer $customer)
+    public function createCharge(Charge &$charge, Card &$card, Customer $customer, bool $sendStripeEmailReceipt = false)
     {
-        $result = $this->_httpClient->createCharge($customer, $charge);
+        $result = $this->_httpClient->createCharge($customer, $charge, $sendStripeEmailReceipt);
 
         if (!isset($result->id)) {
             throw new StripeDonationsPluginException(

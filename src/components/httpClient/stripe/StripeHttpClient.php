@@ -48,11 +48,12 @@ class StripeHttpClient extends Component
     /**
      * @param Customer $customer
      * @param Charge $charge
+     * @param bool $sendStripeEmailReceipt
      * @return StripeCharge
      */
-    public function createCharge(Customer $customer, Charge $charge)
+    public function createCharge(Customer $customer, Charge $charge, bool $sendStripeEmailReceipt = false)
     {
-        $result = StripeCharge::create([
+        $params = [
             'amount' => $charge->amount,
             "currency" => "usd",
             'customer' => $customer->customerId,
@@ -60,7 +61,13 @@ class StripeHttpClient extends Component
                 'projectId' => $charge->projectId,
                 'projectName' => $charge->projectName
             ]
-        ]);
+        ];
+
+        if ($sendStripeEmailReceipt) {
+            $params['receipt_email'] = $customer->email;
+        }
+
+        $result = StripeCharge::create($params);
 
         return $result;
     }

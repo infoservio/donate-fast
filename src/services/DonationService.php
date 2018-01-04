@@ -53,7 +53,7 @@ class DonationService extends Component
         $stripeService = $plugin->stripe;
 
         $stripeService->createCustomer($customer, $params['stripeToken']);
-        $stripeService->createCharge($charge, $card, $customer);
+        $stripeService->createCharge($charge, $card, $customer, $plugin->getSettings()->sendStripeEmailReceipt);
 
         try {
             $customer = $plugin->customer->save($customer);
@@ -66,18 +66,20 @@ class DonationService extends Component
         }
 
         // sending email
-        MailManager::$PLUGIN->mail->send($customer->email, 'success-donation', [
-            'companyName' => $settings['companyName'],
-            'companyAddress' => $settings['companyAddress'],
-            'companyTelephone' => $settings['companyTelephone'],
-            'companyEmail' => $settings['companyEmail'],
-            'userName' => 'Not Found',
-            'userAddress' => 'Not Found',
-            'userEmail' => $customer->email,
-            'invoiceId' => $charge->chargeId,
-            'invoiceDescription' => $charge->projectName,
-            'invoiceSum' => $charge->amount / 100,
-            'invoiceDate' => $charge->created
-        ], $charge->chargeId);
+        if(!$plugin->getSettings()->sendStripeEmailReceipt) {
+            MailManager::$PLUGIN->mail->send($customer->email, 'success-donation', [
+                'companyName' => $settings['companyName'],
+                'companyAddress' => $settings['companyAddress'],
+                'companyTelephone' => $settings['companyTelephone'],
+                'companyEmail' => $settings['companyEmail'],
+                'userName' => 'Not Found',
+                'userAddress' => 'Not Found',
+                'userEmail' => $customer->email,
+                'invoiceId' => $charge->chargeId,
+                'invoiceDescription' => $charge->projectName,
+                'invoiceSum' => $charge->amount / 100,
+                'invoiceDate' => $charge->created
+            ], $charge->chargeId);
+        }
     }
 }
