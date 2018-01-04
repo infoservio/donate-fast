@@ -1,11 +1,11 @@
 <?php
 
-namespace infoservio\stripedonation;
+namespace infoservio\donatefast;
 
-use infoservio\stripedonation\services\CustomerService;
-use infoservio\stripedonation\components\httpClient\stripe\StripeHttpClient;
-use infoservio\stripedonation\components\logger\Logger;
-use infoservio\stripedonation\models\Settings;
+use infoservio\donatefast\services\CustomerService;
+use infoservio\donatefast\components\httpClient\stripe\StripeHttpClient;
+use infoservio\donatefast\components\logger\Logger;
+use infoservio\donatefast\models\Settings;
 
 use Craft;
 use craft\base\Plugin;
@@ -16,13 +16,13 @@ use craft\events\RegisterUrlRulesEvent;
 use craft\events\RegisterCpNavItemsEvent;
 use craft\web\twig\variables\Cp;
 
-use infoservio\stripedonation\services\CardService;
-use infoservio\stripedonation\services\ChargeService;
-use infoservio\stripedonation\services\DonationService;
-use infoservio\stripedonation\services\DonationsSettingsService;
-use infoservio\stripedonation\services\LogService;
-use infoservio\stripedonation\services\PluginService;
-use infoservio\stripedonation\services\StripeService;
+use infoservio\donatefast\services\CardService;
+use infoservio\donatefast\services\ChargeService;
+use infoservio\donatefast\services\DonationService;
+use infoservio\donatefast\services\DonationsSettingsService;
+use infoservio\donatefast\services\LogService;
+use infoservio\donatefast\services\PluginService;
+use infoservio\donatefast\services\StripeService;
 use yii\base\Event;
 
 /**

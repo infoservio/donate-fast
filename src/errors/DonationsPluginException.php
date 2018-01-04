@@ -1,9 +1,9 @@
 <?php
 
-namespace infoservio\stripedonation\errors;
+namespace infoservio\donatefast\errors;
 
-use infoservio\stripedonation\services\LogService;
-use infoservio\stripedonation\StripeDonation;
+use infoservio\donatefast\services\LogService;
+use infoservio\donatefast\StripeDonation;
 
 class DonationsPluginException extends \Exception
 {

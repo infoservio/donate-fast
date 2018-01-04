@@ -1,10 +1,10 @@
 <?php
-namespace infoservio\stripedonation\components\logger;
+namespace infoservio\donatefast\components\logger;
 
 use Craft;
-use infoservio\stripedonation\records\Log as LogRecord;
-use infoservio\stripedonation\models\Log;
-use infoservio\stripedonation\components\Settings;
+use infoservio\donatefast\records\Log as LogRecord;
+use infoservio\donatefast\models\Log;
+use infoservio\donatefast\components\Settings;
 use PHPUnit\Framework\Error\Error;
 use Psr\Log\LogLevel;
 

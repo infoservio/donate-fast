@@ -1,6 +1,6 @@
 <?php
 
-namespace infoservio\stripedonation\assetbundles\sidebar;
+namespace infoservio\donatefast\assetbundles\sidebar;
 
 use craft\web\AssetBundle;
 
@@ -33,7 +33,7 @@ class SidebarAssetBundle extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = '@infoservio/stripedonation/assetbundles/sidebar/dist/';
+        $this->sourcePath = '@infoservio/donatefast/assetbundles/sidebar/dist/';
 
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered

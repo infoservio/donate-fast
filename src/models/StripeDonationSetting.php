@@ -1,9 +1,9 @@
 <?php
 
-namespace infoservio\stripedonation\models;
+namespace infoservio\donatefast\models;
 
 use craft\base\Model;
-use infoservio\stripedonation\records\StripeDonationSetting as StripeDonationSettingRecord;
+use infoservio\donatefast\records\StripeDonationSetting as StripeDonationSettingRecord;
 
 /**
  * StripeDonationSetting Model

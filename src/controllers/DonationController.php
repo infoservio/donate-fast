@@ -8,16 +8,16 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace infoservio\stripedonation\controllers;
+namespace infoservio\donatefast\controllers;
 
-use infoservio\stripedonation\StripeDonation;
+use infoservio\donatefast\StripeDonation;
 
 use Craft;
 use craft\web\Controller;
 
-use infoservio\stripedonation\assetbundles\bootstrap\StripeDonationBootstrapAssetBundle;
-use infoservio\stripedonation\errors\DonationsPluginException;
-use infoservio\stripedonation\records\StripeDonationSetting;
+use infoservio\donatefast\assetbundles\bootstrap\StripeDonationBootstrapAssetBundle;
+use infoservio\donatefast\errors\DonationsPluginException;
+use infoservio\donatefast\records\StripeDonationSetting;
 
 /**
  * Donation Controller

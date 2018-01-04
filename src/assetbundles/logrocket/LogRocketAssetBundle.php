@@ -8,14 +8,14 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace infoservio\stripedonation\assetbundles\logrocket;
+namespace infoservio\donatefast\assetbundles\logrocket;
 
 use Craft;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
 
 /**
- * DonationsfreeAsset AssetBundle
+ * donatefastAsset AssetBundle
  *
  * AssetBundle represents a collection of asset files, such as CSS, JS, images.
  *
@@ -43,7 +43,7 @@ class LogRocketAssetBundle extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = '@infoservio/stripedonation/assetbundles/logrocket/dist';
+        $this->sourcePath = '@infoservio/donatefast/assetbundles/logrocket/dist';
 
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered

@@ -1,6 +1,6 @@
 <?php
 
-namespace infoservio\stripedonation\assetbundles\bootstrap;
+namespace infoservio\donatefast\assetbundles\bootstrap;
 
 use craft\web\AssetBundle;
 
@@ -22,7 +22,7 @@ class StripeDonationBootstrapAssetBundle extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = '@infoservio/stripedonation/assetbundles/bootstrap/dist';
+        $this->sourcePath = '@infoservio/donatefast/assetbundles/bootstrap/dist';
 
         $this->js = [
             'js/index.js'

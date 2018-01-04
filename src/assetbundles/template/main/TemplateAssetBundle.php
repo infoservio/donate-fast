@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace infoservio\stripedonation\assetbundles\template\main;
+namespace infoservio\donatefast\assetbundles\template\main;
 
 use Craft;
 use craft\web\AssetBundle;
@@ -43,7 +43,7 @@ class TemplateAssetBundle extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = '@infoservio/stripedonation/assetbundles/template/main/dist';
+        $this->sourcePath = '@infoservio/donatefast/assetbundles/template/main/dist';
 
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered

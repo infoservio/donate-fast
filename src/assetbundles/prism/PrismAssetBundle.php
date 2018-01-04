@@ -1,6 +1,6 @@
 <?php
 
-namespace infoservio\stripedonation\assetbundles\prism;
+namespace infoservio\donatefast\assetbundles\prism;
 
 use Craft;
 use craft\web\AssetBundle;
@@ -35,7 +35,7 @@ class PrismAssetBundle extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = '@infoservio/stripedonation/assetbundles/prism/dist/';
+        $this->sourcePath = '@infoservio/donatefast/assetbundles/prism/dist/';
 
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered

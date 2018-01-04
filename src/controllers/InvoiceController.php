@@ -8,16 +8,16 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace infoservio\stripedonation\controllers;
+namespace infoservio\donatefast\controllers;
 
 use Craft;
 use craft\web\Controller;
 use Faker\Provider\Base;
 use infoservio\mailmanager\MailManager;
-use infoservio\stripedonation\models\StripeDonationSetting;
-use infoservio\stripedonation\records\Charge;
+use infoservio\donatefast\models\StripeDonationSetting;
+use infoservio\donatefast\records\Charge;
 use infoservio\mailmanager\records\Template as TemplateRecord;
-use infoservio\stripedonation\StripeDonation;
+use infoservio\donatefast\StripeDonation;
 use yii\web\BadRequestHttpException;
 
 /**

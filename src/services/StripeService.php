@@ -8,17 +8,17 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace infoservio\stripedonation\services;
+namespace infoservio\donatefast\services;
 
 use craft\base\Component;
 
-use infoservio\stripedonation\components\httpClient\stripe\StripeHttpClient;
-use infoservio\stripedonation\StripeDonation;
-use infoservio\stripedonation\errors\StripeDonationsPluginException;
-use infoservio\stripedonation\models\Customer;
-use infoservio\stripedonation\models\Card;
-use infoservio\stripedonation\models\Charge;
-use infoservio\stripedonation\models\Log;
+use infoservio\donatefast\components\httpClient\stripe\StripeHttpClient;
+use infoservio\donatefast\StripeDonation;
+use infoservio\donatefast\errors\StripeDonationsPluginException;
+use infoservio\donatefast\models\Customer;
+use infoservio\donatefast\models\Card;
+use infoservio\donatefast\models\Charge;
+use infoservio\donatefast\models\Log;
 
 /**
  * Stripe Service

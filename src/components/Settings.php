@@ -1,5 +1,5 @@
 <?php
-namespace infoservio\stripedonation\components;
+namespace infoservio\donatefast\components;
 
 class Settings
 {

@@ -8,14 +8,14 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace infoservio\stripedonation\services;
+namespace infoservio\donatefast\services;
 
 use craft\base\Component;
 
-use infoservio\stripedonation\errors\DbDonationsPluginException;
-use infoservio\stripedonation\records\Card as CardRecord;
-use infoservio\stripedonation\models\Card;
-use infoservio\stripedonation\models\Log;
+use infoservio\donatefast\errors\DbDonationsPluginException;
+use infoservio\donatefast\records\Card as CardRecord;
+use infoservio\donatefast\models\Card;
+use infoservio\donatefast\models\Log;
 
 /**
  * Donate Service

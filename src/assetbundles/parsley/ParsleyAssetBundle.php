@@ -1,6 +1,6 @@
 <?php
 
-namespace infoservio\stripedonation\assetbundles\parsley;
+namespace infoservio\donatefast\assetbundles\parsley;
 
 use craft\web\AssetBundle;
 
@@ -33,7 +33,7 @@ class ParsleyAssetBundle extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = '@infoservio/stripedonation/assetbundles/parsley/dist/';
+        $this->sourcePath = '@infoservio/donatefast/assetbundles/parsley/dist/';
 
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered

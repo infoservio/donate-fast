@@ -1,12 +1,12 @@
 {% extends "_layouts/cp" %}
 
 {% if isUserHelpUs %}
-    {% do view.registerAssetBundle("infoservio\\stripedonation\\assetbundles\\logrocket\\LogRocketAssetBundle") %}
+    {% do view.registerAssetBundle("infoservio\\donatefast\\assetbundles\\logrocket\\LogRocketAssetBundle") %}
 {% endif %}
 
 {% import "_includes/forms" as forms %}
-{% do view.registerAssetBundle("infoservio\\stripedonation\\assetbundles\\sidebar\\SidebarAssetBundle") %}
-{% do view.registerAssetBundle("infoservio\\stripedonation\\assetbundles\\prism\\PrismAssetBundle") %}
+{% do view.registerAssetBundle("infoservio\\donatefast\\assetbundles\\sidebar\\SidebarAssetBundle") %}
+{% do view.registerAssetBundle("infoservio\\donatefast\\assetbundles\\prism\\PrismAssetBundle") %}
 {% set title = "Donation Form"|t('app') %}
 {% block sidebar %}
     <div class="sidebar-header">

@@ -1,15 +1,15 @@
 {% extends "_layouts/cp" %}
 
 {% if isUserHelpUs %}
-    {% do view.registerAssetBundle("infoservio\\stripedonation\\assetbundles\\logrocket\\LogRocketAssetBundle") %}
+    {% do view.registerAssetBundle("infoservio\\donatefast\\assetbundles\\logrocket\\LogRocketAssetBundle") %}
 {% endif %}
 
-{% do view.registerAssetBundle("infoservio\\stripedonation\\assetbundles\\sidebar\\SidebarAssetBundle") %}
-{% do view.registerAssetBundle("infoservio\\stripedonation\\assetbundles\\template\\main\\TemplateAssetBundle") %}
+{% do view.registerAssetBundle("infoservio\\donatefast\\assetbundles\\sidebar\\SidebarAssetBundle") %}
+{% do view.registerAssetBundle("infoservio\\donatefast\\assetbundles\\template\\main\\TemplateAssetBundle") %}
 {% set title = "Invoice Manager"|t('app') %}
-{% set deliveredIcon = view.getAssetManager().getPublishedUrl('@infoservio/stripedonation/assetbundles/template/main/dist', true) ~ '/img/delivered.png' %}
-{% set droppedIcon = view.getAssetManager().getPublishedUrl('@infoservio/stripedonation/assetbundles/template/main/dist', true) ~ '/img/dropped.png' %}
-{% set openedIcon = view.getAssetManager().getPublishedUrl('@infoservio/stripedonation/assetbundles/template/main/dist', true) ~ '/img/opened.png' %}
+{% set deliveredIcon = view.getAssetManager().getPublishedUrl('@infoservio/donatefast/assetbundles/template/main/dist', true) ~ '/img/delivered.png' %}
+{% set droppedIcon = view.getAssetManager().getPublishedUrl('@infoservio/donatefast/assetbundles/template/main/dist', true) ~ '/img/dropped.png' %}
+{% set openedIcon = view.getAssetManager().getPublishedUrl('@infoservio/donatefast/assetbundles/template/main/dist', true) ~ '/img/opened.png' %}
 {% block sidebar %}
     <div class="sidebar-header">
         <h3>Sidebar Menu</h3>

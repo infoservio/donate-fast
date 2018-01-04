@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace infoservio\stripedonation\records;
+namespace infoservio\donatefast\records;
 
 use craft\db\ActiveRecord;
 use infoservio\mailmanager\records\Mail;

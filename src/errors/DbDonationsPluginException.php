@@ -1,8 +1,8 @@
 <?php
 
-namespace infoservio\stripedonation\errors;
+namespace infoservio\donatefast\errors;
 
-use infoservio\stripedonation\models\Log;
+use infoservio\donatefast\models\Log;
 
 
 class DbDonationsPluginException extends DonationsPluginException

@@ -1,5 +1,5 @@
 <?php
-namespace infoservio\stripedonation\migrations;
+namespace infoservio\donatefast\migrations;
 
 use Yii;
 use Craft;

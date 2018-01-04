@@ -8,12 +8,12 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace infoservio\stripedonation\services;
+namespace infoservio\donatefast\services;
 
 use craft\base\Component;
 
-use infoservio\stripedonation\records\StripeDonationSetting as StripeDonationSettingRecord;
-use infoservio\stripedonation\models\StripeDonationSetting;
+use infoservio\donatefast\records\StripeDonationSetting as StripeDonationSettingRecord;
+use infoservio\donatefast\models\StripeDonationSetting;
 
 /**
  * Donate Service

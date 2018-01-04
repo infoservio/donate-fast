@@ -1,5 +1,5 @@
 <?php
-namespace infoservio\stripedonation\components\logger;
+namespace infoservio\donatefast\components\logger;
 
 interface ILogger
 {

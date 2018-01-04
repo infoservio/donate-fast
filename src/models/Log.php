@@ -1,6 +1,6 @@
 <?php
 
-namespace infoservio\stripedonation\models;
+namespace infoservio\donatefast\models;
 
 use craft\base\Model;
 

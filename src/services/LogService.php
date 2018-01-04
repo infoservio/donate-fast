@@ -8,9 +8,9 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace infoservio\stripedonation\services;
+namespace infoservio\donatefast\services;
 
-use infoservio\stripedonation\StripeDonation;
+use infoservio\donatefast\StripeDonation;
 use craft\base\Component;
 
 /**

@@ -36,7 +36,7 @@
     ],
     "autoload": {
         "psr-4": {
-          "infoservio\\stripedonation\\": "src/"
+          "infoservio\\donatefast\\": "src/"
         }
     },
     "extra": {
@@ -47,18 +47,18 @@
         "hasCpSection": true,
         "changelogUrl": "???",
         "components": {
-            "donation": "infoservio\\stripedonation\\services\\DonationService",
-            "stripe": "infoservio\\stripedonation\\services\\StripeService",
-            "card": "infoservio\\stripedonation\\services\\CardService",
-            "customer": "infoservio\\stripedonation\\services\\CustomerService",
-            "charge": "infoservio\\stripedonation\\services\\ChargeService",
-            "log": "infoservio\\stripedonation\\services\\LogService",
-            "donationSetting": "infoservio\\stripedonation\\services\\DonationsSettingsService",
-            "plugin": "infoservio\\stripedonation\\services\\PluginService",
-            "stripeClient": "infoservio\\stripedonation\\components\\httpClient\\stripe\\StripeHttpClient",
-            "donationLogger": "infoservio\\stripedonation\\components\\logger\\Logger"
+            "donation": "infoservio\\donatefast\\services\\DonationService",
+            "stripe": "infoservio\\donatefast\\services\\StripeService",
+            "card": "infoservio\\donatefast\\services\\CardService",
+            "customer": "infoservio\\donatefast\\services\\CustomerService",
+            "charge": "infoservio\\donatefast\\services\\ChargeService",
+            "log": "infoservio\\donatefast\\services\\LogService",
+            "donationSetting": "infoservio\\donatefast\\services\\DonationsSettingsService",
+            "plugin": "infoservio\\donatefast\\services\\PluginService",
+            "stripeClient": "infoservio\\donatefast\\components\\httpClient\\stripe\\StripeHttpClient",
+            "donationLogger": "infoservio\\donatefast\\components\\logger\\Logger"
         },
-        "class": "infoservio\\stripedonation\\StripeDonation"
+        "class": "infoservio\\donatefast\\StripeDonation"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.2"

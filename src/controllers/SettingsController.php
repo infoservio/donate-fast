@@ -8,12 +8,12 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace infoservio\stripedonation\controllers;
+namespace infoservio\donatefast\controllers;
 
 use Craft;
 use craft\web\Controller;
-use infoservio\stripedonation\StripeDonation;
-use infoservio\stripedonation\models\StripeDonationSetting;
+use infoservio\donatefast\StripeDonation;
+use infoservio\donatefast\models\StripeDonationSetting;
 
 /**
  * Settings Controller

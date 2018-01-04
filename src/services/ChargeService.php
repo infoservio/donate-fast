@@ -8,14 +8,14 @@
  * @copyright Copyright (c) 2017 endurant
  */
 
-namespace infoservio\stripedonation\services;
+namespace infoservio\donatefast\services;
 
 use craft\base\Component;
 
-use infoservio\stripedonation\errors\DbDonationsPluginException;
-use infoservio\stripedonation\records\Charge as TransactionRecord;
-use infoservio\stripedonation\models\Charge;
-use infoservio\stripedonation\models\Log;
+use infoservio\donatefast\errors\DbDonationsPluginException;
+use infoservio\donatefast\records\Charge as TransactionRecord;
+use infoservio\donatefast\models\Charge;
+use infoservio\donatefast\models\Log;
 
 /**
  * Charge Service

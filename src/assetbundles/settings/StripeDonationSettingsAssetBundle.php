@@ -1,6 +1,6 @@
 <?php
 
-namespace infoservio\stripedonation\assetbundles\settings;
+namespace infoservio\donatefast\assetbundles\settings;
 
 use craft\web\AssetBundle;
 
@@ -33,7 +33,7 @@ class StripeDonationSettingsAssetBundle extends AssetBundle
     public function init()
     {
         // define the path that your publishable resources live
-        $this->sourcePath = '@infoservio/stripedonation/assetbundles/settings/dist/';
+        $this->sourcePath = '@infoservio/donatefast/assetbundles/settings/dist/';
 
         // define the relative path to CSS/JS files that should be registered with the page
         // when this asset bundle is registered
