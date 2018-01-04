@@ -1,6 +1,6 @@
-# stripe-donation plugin for Craft CMS 3.x
+# Donate Fast With Stripe for Craft 3
 
-Free Braintree Donation System
+This plugin can be used for non-profit companies that accept donations to help others.
 
 ![Screenshot](resources/img/plugin-logo.png)
 
@@ -18,19 +18,19 @@ To install the plugin, follow these instructions.
 
 2. Then tell Composer to load the plugin:
 
-        composer require /donations-free
+        composer require donate-fast
 
-3. In the Control Panel, go to Settings → Plugins and click the “Install” button for donations-free.
+3. In the Control Panel, go to Settings → Plugins and click the “Install” button for donate-fast.
 
-## donations-free Overview
-
--Insert text here-
-
-## Configuring donations-free
+## Overview donate-fast
 
 -Insert text here-
 
-## Using donations-free
+## Configuring donate-fast
+
+-Insert text here-
+
+## Using donate-fast
 
 -Insert text here-
 
