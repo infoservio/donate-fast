@@ -12,7 +12,7 @@ namespace infoservio\donatefast\controllers;
 
 use Craft;
 use craft\web\Controller;
-use infoservio\donatefast\StripeDonation;
+use infoservio\donatefast\DonateFast;
 use infoservio\donatefast\models\StripeDonationSetting;
 
 /**
@@ -39,7 +39,7 @@ class SettingsController extends BaseController
     public function actionSettings()
     {
         if ($post = Craft::$app->request->post()) {
-            StripeDonation::$PLUGIN->plugin->update($post);
+            DonateFast::$PLUGIN->plugin->update($post);
             return $this->redirect('donate-fastsettings');
         }
 

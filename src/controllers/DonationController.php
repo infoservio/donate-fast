@@ -10,7 +10,7 @@
 
 namespace infoservio\donatefast\controllers;
 
-use infoservio\donatefast\StripeDonation;
+use infoservio\donatefast\DonateFast;
 
 use Craft;
 use craft\web\Controller;
@@ -95,7 +95,7 @@ class DonationController extends Controller
         $post = Craft::$app->request->getBodyParams();
 //        die(json_encode($post));
         try {
-            StripeDonation::$PLUGIN->donation->donate($post);
+            DonateFast::$PLUGIN->donation->donate($post);
         } catch (\Exception $e) {
             return $this->redirect('/actions/donate-fast/donation/error');
         }

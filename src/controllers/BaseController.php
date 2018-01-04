@@ -16,7 +16,7 @@ use infoservio\mailmanager\MailManager;
 use infoservio\donatefast\models\StripeDonationSetting;
 use infoservio\donatefast\records\Charge;
 use infoservio\mailmanager\records\Template as TemplateRecord;
-use infoservio\donatefast\StripeDonation;
+use infoservio\donatefast\DonateFast;
 use yii\web\BadRequestHttpException;
 
 /**
@@ -40,7 +40,7 @@ class BaseController extends Controller
         // ...set `$this->enableCsrfValidation` here based on some conditions...
         // call parent method that will check CSRF if such property is true.
         $this->enableCsrfValidation = false;
-        $this->isUserHelpUs = StripeDonation::$PLUGIN->getSettings()->helpUsImproveOurProduct;
+        $this->isUserHelpUs = DonateFast::$PLUGIN->getSettings()->helpUsImproveOurProduct;
         return parent::beforeAction($action);
     }
 }

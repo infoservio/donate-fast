@@ -10,7 +10,7 @@
 
 namespace infoservio\donatefast\services;
 
-use infoservio\donatefast\StripeDonation;
+use infoservio\donatefast\DonateFast;
 use craft\base\Component;
 
 /**
@@ -27,7 +27,7 @@ class LogService extends Component
     public function __construct()
     {
         parent::__construct();
-        $this->_donationLogger = StripeDonation::$PLUGIN->donationLogger;
+        $this->_donationLogger = DonateFast::$PLUGIN->donationLogger;
     }
 
     // Public Methods

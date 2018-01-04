@@ -52,7 +52,7 @@ use yii\base\Event;
  * @property  Settings $settings
  * @method    Settings getSettings()
  */
-class StripeDonation extends Plugin
+class DonateFast extends Plugin
 {
     // Static Properties
     // =========================================================================
@@ -61,7 +61,7 @@ class StripeDonation extends Plugin
      * Static property that is an instance of this plugin class so that it can be accessed via
      * DonationsFree::$plugin
      *
-     * @var StripeDonation
+     * @var DonateFast
      */
     public static $PLUGIN;
 

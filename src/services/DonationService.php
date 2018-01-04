@@ -15,7 +15,7 @@ use craft\base\Component;
 use infoservio\mailmanager\MailManager;
 use infoservio\donatefast\errors\StripeDonationsPluginException;
 use infoservio\donatefast\models\StripeDonationSetting;
-use infoservio\donatefast\StripeDonation;
+use infoservio\donatefast\DonateFast;
 use infoservio\donatefast\errors\DbDonationsPluginException;
 use infoservio\donatefast\models\Customer;
 use infoservio\donatefast\models\Card;
@@ -41,7 +41,7 @@ class DonationService extends Component
     {
         $settings = StripeDonationSetting::getSettingsArr();
 
-        $plugin = StripeDonation::$PLUGIN;
+        $plugin = DonateFast::$PLUGIN;
         $customer = Customer::create($params);
         $card = new Card();
         $charge = new Charge();

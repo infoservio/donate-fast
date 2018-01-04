@@ -13,7 +13,7 @@ namespace infoservio\donatefast\services;
 use craft\base\Component;
 
 use infoservio\donatefast\components\httpClient\stripe\StripeHttpClient;
-use infoservio\donatefast\StripeDonation;
+use infoservio\donatefast\DonateFast;
 use infoservio\donatefast\errors\StripeDonationsPluginException;
 use infoservio\donatefast\models\Customer;
 use infoservio\donatefast\models\Card;
@@ -37,7 +37,7 @@ class StripeService extends Component
     public function init()
     {
         parent::init();
-        $this->_httpClient = StripeDonation::$PLUGIN->stripeClient;
+        $this->_httpClient = DonateFast::$PLUGIN->stripeClient;
     }
 
 

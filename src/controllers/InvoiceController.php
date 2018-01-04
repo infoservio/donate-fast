@@ -17,7 +17,7 @@ use infoservio\mailmanager\MailManager;
 use infoservio\donatefast\models\StripeDonationSetting;
 use infoservio\donatefast\records\Charge;
 use infoservio\mailmanager\records\Template as TemplateRecord;
-use infoservio\donatefast\StripeDonation;
+use infoservio\donatefast\DonateFast;
 use yii\web\BadRequestHttpException;
 
 /**

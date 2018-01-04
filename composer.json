@@ -58,7 +58,7 @@
             "stripeClient": "infoservio\\donatefast\\components\\httpClient\\stripe\\StripeHttpClient",
             "donationLogger": "infoservio\\donatefast\\components\\logger\\Logger"
         },
-        "class": "infoservio\\donatefast\\StripeDonation"
+        "class": "infoservio\\donatefast\\DonateFast"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.2"

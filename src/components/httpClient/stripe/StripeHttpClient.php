@@ -2,7 +2,7 @@
 
 namespace infoservio\donatefast\components\httpClient\stripe;
 
-use infoservio\donatefast\StripeDonation;
+use infoservio\donatefast\DonateFast;
 use yii\base\Component;
 
 use Stripe\Customer as StripeCustomer;
@@ -20,7 +20,7 @@ class StripeHttpClient extends Component
     function __construct()
     {
         parent::__construct();
-        $this->_settings = StripeDonation::$PLUGIN->getSettings();
+        $this->_settings = DonateFast::$PLUGIN->getSettings();
 
         // Configuration of Stripe
         Stripe::setApiKey($this->_settings->stripeSecretKey);

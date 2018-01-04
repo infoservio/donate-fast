@@ -3,7 +3,7 @@
 namespace infoservio\donatefast\errors;
 
 use infoservio\donatefast\services\LogService;
-use infoservio\donatefast\StripeDonation;
+use infoservio\donatefast\DonateFast;
 
 class DonationsPluginException extends \Exception
 {
@@ -21,7 +21,7 @@ class DonationsPluginException extends \Exception
         $this->message = $message;
         $this->method = $method;
 
-        $this->_logService = StripeDonation::$PLUGIN->log;
+        $this->_logService = DonateFast::$PLUGIN->log;
         $this->log($category);
     }
     
