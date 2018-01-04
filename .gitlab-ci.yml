@@ -15,8 +15,8 @@ job_for_github_push:
     - git clone $CI_REPOSITORY_URL /tmp/repo
     - ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
     - git --git-dir=/tmp/repo/.git --work-tree=/tmp/repo remote add github git@github.com:infoservio/donate-fast.git
-    - git --git-dir=/tmp/repo/.git --work-tree=/tmp/repo push -f -u github --all
-    - git --git-dir=/tmp/repo/.git --work-tree=/tmp/repo push -f -u github --tags
+    - git --git-dir=/tmp/repo/.git --work-tree=/tmp/repo push  -u github --all
+    - git --git-dir=/tmp/repo/.git --work-tree=/tmp/repo push  -u github --tags
   tags:
     - cpanels_docker
   image: gitlab.oms.systems:4567/km/mysqlbackup
