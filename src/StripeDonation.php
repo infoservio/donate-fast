@@ -110,7 +110,7 @@ class StripeDonation extends Plugin
             UrlManager::class,
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['stripe-donation/invoice/view'] = 'stripe-donation/invoice/view';
+                $event->rules['donate-fast/invoice/view'] = 'donate-fast/invoice/view';
             }
         );
 
@@ -119,18 +119,18 @@ class StripeDonation extends Plugin
             UrlManager::class,
             UrlManager::EVENT_REGISTER_CP_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
-                $event->rules['stripe-donation'] = 'stripe-donation/invoice/index';
-                $event->rules['stripe-donation/settings'] = 'stripe-donation/settings/settings';
-                $event->rules['stripe-donation/donation-form'] = 'stripe-donation/settings/donation-form';
-                $event->rules['stripe-donation/invoice'] = 'stripe-donation/invoice/index';
-                $event->rules['stripe-donation/invoice/view'] = 'stripe-donation/invoice/view';
-                $event->rules['stripe-donation/invoice/send'] = 'stripe-donation/invoice/send';
+                $event->rules['donate-fast'] = 'donate-fast/invoice/index';
+                $event->rules['donate-fast/settings'] = 'donate-fast/settings/settings';
+                $event->rules['donate-fast/donation-form'] = 'donate-fast/settings/donation-form';
+                $event->rules['donate-fast/invoice'] = 'donate-fast/invoice/index';
+                $event->rules['donate-fast/invoice/view'] = 'donate-fast/invoice/view';
+                $event->rules['donate-fast/invoice/send'] = 'donate-fast/invoice/send';
             }
         );
 
         Craft::info(
             Craft::t(
-                'stripe-donation',
+                'donate-fast',
                 '{name} plugin loaded',
                 ['name' => $this->name]
             ),
@@ -171,7 +171,7 @@ class StripeDonation extends Plugin
     protected function settingsHtml(): string
     {
         return Craft::$app->view->renderTemplate(
-            'stripe-donation/settings',
+            'donate-fast/settings',
             [
                 'settings' => $this->getSettings()
             ]

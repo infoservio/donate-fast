@@ -51,7 +51,7 @@ class InvoiceController extends BaseController
     {
         $columns = Charge::getColumns();
         $records = Charge::getAll();
-        return $this->renderTemplate('stripe-donation/invoice/index', [
+        return $this->renderTemplate('donate-fast/invoice/index', [
             'columns' => $columns,
             'records' => $records,
             'isUserHelpUs' => $this->isUserHelpUs,
@@ -72,7 +72,7 @@ class InvoiceController extends BaseController
         $record = Charge::getById($id);
 
         if (!$record) {
-            return $this->redirect('stripe-donation/not-found');
+            return $this->redirect('donate-fast/not-found');
         }
 
         $card = $record->getCard();
@@ -93,7 +93,7 @@ class InvoiceController extends BaseController
             'invoiceDate' => $record->created
         ]);
 
-        return $this->renderTemplate('stripe-donation/invoice/view', [
+        return $this->renderTemplate('donate-fast/invoice/view', [
             'template' => $parsedTemplate,
             'isUserHelpUs' => $this->isUserHelpUs
         ]);
@@ -113,7 +113,7 @@ class InvoiceController extends BaseController
         $record = Charge::getById($id);
 
         if (!$record) {
-            return $this->redirect('stripe-donation/not-found');
+            return $this->redirect('donate-fast/not-found');
         }
 
         $card = $record->getCard();

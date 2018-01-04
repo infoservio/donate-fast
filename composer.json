@@ -1,5 +1,5 @@
 {
-    "name": "infoservio/stripe-donation",
+    "name": "infoservio/donate-fast",
     "description": "Donate Fast",
     "type": "craft-plugin",
     "version": "1.0.0",
@@ -41,7 +41,7 @@
     },
     "extra": {
         "name": "Donate Fast",
-        "handle": "stripe-donation",
+        "handle": "donate-fast",
         "schemaVersion": "1.0.0",
         "hasCpSettings": true,
         "hasCpSection": true,

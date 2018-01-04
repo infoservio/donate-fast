@@ -1,4 +1,4 @@
-# stripe-donation Changelog
+# donate-fast Changelog
 
 All notable changes to this project will be documented in this file.
 

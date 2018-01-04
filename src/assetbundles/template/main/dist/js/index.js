@@ -7,7 +7,7 @@ $(document).ready(function() {
         if (confirm("Are you sure?")) {
             $.ajax({
                 type: "POST",
-                url: '/admin/stripe-donation/invoice/send',
+                url: '/admin/donate-fast/invoice/send',
                 data: { id: $(this).attr('value')}
             });
         }

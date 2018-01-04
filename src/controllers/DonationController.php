@@ -97,10 +97,10 @@ class DonationController extends Controller
         try {
             StripeDonation::$PLUGIN->donation->donate($post);
         } catch (\Exception $e) {
-            return $this->redirect('/actions/stripe-donation/donation/error');
+            return $this->redirect('/actions/donate-fast/donation/error');
         }
 
         Craft::$app->session->set('donation', $post);
-        return $this->redirect('/actions/stripe-donation/donation/success');
+        return $this->redirect('/actions/donate-fast/donation/success');
     }
 }

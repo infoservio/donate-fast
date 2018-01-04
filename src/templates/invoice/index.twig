@@ -17,9 +17,9 @@
 
     <!-- Sidebar Links -->
     <ul class="list-unstyled components">
-        <li class="active sidebar-item"><a href="/admin/stripe-donation/invoice">Invoice Manager <i class="sidebar-icon material-icons">keyboard_arrow_right</i></a></li>
-        <li class="sidebar-item"><a href="/admin/stripe-donation/settings">Settings Manager</a></li>
-        <li class="sidebar-item"><a href="/admin/stripe-donation/donation-form">Using Donate Fast Form</a></li>
+        <li class="active sidebar-item"><a href="/admin/donate-fast/invoice">Invoice Manager <i class="sidebar-icon material-icons">keyboard_arrow_right</i></a></li>
+        <li class="sidebar-item"><a href="/admin/donate-fast/settings">Settings Manager</a></li>
+        <li class="sidebar-item"><a href="/admin/donate-fast/donation-form">Using Donate Fast Form</a></li>
     </ul>
 {% endblock %}
 {% block content %}
@@ -49,8 +49,8 @@
                          height="30"
                     style="margin-left: 20px"/></td>
                 <td class="icons">
-                    <a href="/admin/stripe-donation/invoice/view?id={{ record.id }}" class="glyphicon glyphicon-eye-open invoice-icon" title="View"></a>
-                    <a href="/admin/stripe-donation/invoice/send?id={{ record.id }}" class="glyphicon glyphicon-envelope send-email invoice-icon"  value="{{ record.id }}" title="Send"></a>
+                    <a href="/admin/donate-fast/invoice/view?id={{ record.id }}" class="glyphicon glyphicon-eye-open invoice-icon" title="View"></a>
+                    <a href="/admin/donate-fast/invoice/send?id={{ record.id }}" class="glyphicon glyphicon-envelope send-email invoice-icon"  value="{{ record.id }}" title="Send"></a>
                 </td>
             </tr>
         {% endfor %}

@@ -40,11 +40,11 @@ class SettingsController extends BaseController
     {
         if ($post = Craft::$app->request->post()) {
             StripeDonation::$PLUGIN->plugin->update($post);
-            return $this->redirect('stripe-donation/settings');
+            return $this->redirect('donate-fastsettings');
         }
 
         $settings = StripeDonationSetting::getSettingsArr();
-        return $this->renderTemplate('stripe-donation/settings/index', [
+        return $this->renderTemplate('donate-fast/settings/index', [
             'settings' => $settings,
             'isUserHelpUs' => $this->isUserHelpUs
         ]);
@@ -52,7 +52,7 @@ class SettingsController extends BaseController
 
     public function actionDonationForm()
     {
-        return $this->renderTemplate('stripe-donation/settings/donation-form', [
+        return $this->renderTemplate('donate-fast/settings/donation-form', [
             'isUserHelpUs' => $this->isUserHelpUs
         ]);
     }

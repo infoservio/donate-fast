@@ -145,7 +145,7 @@ class Install extends Migration
     private function addForeignKeys()
     {
         $this->addForeignKey(
-            'fk-stripe-donation-charge-card',
+            'fk-donate-fast-charge-card',
             'stripe_donation_charge',
             'cardId',
             'stripe_donation_card',
@@ -153,7 +153,7 @@ class Install extends Migration
         );
 
         $this->addForeignKey(
-            'fk-stripe-donation-card-customer',
+            'fk-donate-fast-card-customer',
             'stripe_donation_card',
             'customerId',
             'stripe_donation_customer',

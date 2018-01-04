@@ -18,7 +18,7 @@ class Logger implements ILogger
 
     public function __construct()
     {
-        $this->category = 'stripe-donation-logs';
+        $this->category = 'donate-fast-logs';
         $this->processId = Settings::createProcessID();
     }
 

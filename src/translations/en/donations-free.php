@@ -21,5 +21,5 @@
  * @since     1.0.0
  */
 return [
-    'stripe-donation plugin loaded' => 'stripe-donation plugin loaded',
+    'donate-fast plugin loaded' => 'donate-fast plugin loaded',
 ];
