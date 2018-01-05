@@ -37,7 +37,7 @@
     required: true
 })
 }}
-
+<div>
 {{ forms.checkbox({
     label: 'Help us improve our product',
     instructions: 'You can help us improve our product. Be responsible user.',
@@ -46,7 +46,8 @@
     checked: settings['helpUsImproveOurProduct']
 })
 }}
-
+</div>
+<div>
 {{ forms.checkbox({
     label: 'Send receipt email using Stripe',
     instructions: 'You can send email receipts using default Stripe or you can send email using Fast Sendnote where you can change email template as you want.',
@@ -55,4 +56,6 @@
     checked: settings['sendStripeEmailReceipt']
 })
 }}
+</div>
+
 
