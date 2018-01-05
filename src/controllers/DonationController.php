@@ -93,7 +93,7 @@ class DonationController extends Controller
     {
         $this->requirePostRequest();
         $post = Craft::$app->request->getBodyParams();
-//        die(json_encode($post));
+
         try {
             DonateFast::$PLUGIN->donation->donate($post);
         } catch (\Exception $e) {
