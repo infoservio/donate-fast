@@ -11,13 +11,10 @@
 namespace infoservio\donatefast\controllers;
 
 use Craft;
-use craft\web\Controller;
-use Faker\Provider\Base;
-use infoservio\mailmanager\MailManager;
+use infoservio\fastsendnote\FastSendNote;
 use infoservio\donatefast\models\StripeDonationSetting;
 use infoservio\donatefast\records\Charge;
-use infoservio\mailmanager\records\Template as TemplateRecord;
-use infoservio\donatefast\DonateFast;
+use infoservio\fastsendnote\records\Template as TemplateRecord;
 use yii\web\BadRequestHttpException;
 
 /**
@@ -79,7 +76,7 @@ class InvoiceController extends BaseController
         $customer = $card->getCustomer();
         $settings = StripeDonationSetting::getSettingsArr();
         $template = TemplateRecord::getBySlug('success-donation');
-        $parsedTemplate = MailManager::$PLUGIN->templateParser->parse($template->template, [
+        $parsedTemplate = FastSendNote::$plugin->templateParser->parse($template->template, [
             'companyName' => $settings['companyName'],
             'companyAddress' => $settings['companyAddress'],
             'companyTelephone' => $settings['companyTelephone'],
@@ -119,7 +116,7 @@ class InvoiceController extends BaseController
         $card = $record->getCard();
         $customer = $card->getCustomer();
         $settings = StripeDonationSetting::getSettingsArr();
-        return MailManager::$PLUGIN->mail->send($customer->email, 'success-donation', [
+        return FastSendNote::$plugin->mail->send($customer->email, 'success-donation', [
             'companyName' => $settings['companyName'],
             'companyAddress' => $settings['companyAddress'],
             'companyTelephone' => $settings['companyTelephone'],

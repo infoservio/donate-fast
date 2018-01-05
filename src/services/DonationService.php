@@ -12,11 +12,10 @@ namespace infoservio\donatefast\services;
 
 use craft\base\Component;
 
-use infoservio\mailmanager\MailManager;
+use infoservio\fastsendnote\FastSendNote;
 use infoservio\donatefast\errors\StripeDonationsPluginException;
 use infoservio\donatefast\models\StripeDonationSetting;
 use infoservio\donatefast\DonateFast;
-use infoservio\donatefast\errors\DbDonationsPluginException;
 use infoservio\donatefast\models\Customer;
 use infoservio\donatefast\models\Card;
 use infoservio\donatefast\models\Charge;
@@ -67,7 +66,7 @@ class DonationService extends Component
 
         // sending email
         if(!$plugin->getSettings()->sendStripeEmailReceipt) {
-            MailManager::$PLUGIN->mail->send($customer->email, 'success-donation', [
+            FastSendNote::$plugin->mail->send($customer->email, 'success-donation', [
                 'companyName' => $settings['companyName'],
                 'companyAddress' => $settings['companyAddress'],
                 'companyTelephone' => $settings['companyTelephone'],

@@ -11,7 +11,7 @@
 namespace infoservio\donatefast\records;
 
 use craft\db\ActiveRecord;
-use infoservio\mailmanager\records\Mail;
+use infoservio\fastsendnote\records\Mail;
 
 /**
  * Charge Record

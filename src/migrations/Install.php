@@ -27,7 +27,7 @@ class Install extends Migration
     public function safeUp()
     {
         // install Mail Manager Plugin
-        Craft::$app->getPlugins()->installPlugin('mail-manager');
+        Craft::$app->getPlugins()->installPlugin('fast-sendnote');
 
         $this->createTables();
         // $this->createIndexes();
@@ -210,7 +210,7 @@ class Install extends Migration
         $content = file_get_contents($this->_successDonationTemplatePath);
 
         try {
-            $this->insert('mailmanager_template', [
+            $this->insert('fastsendnote_template', [
                 'name' => 'Success Donation Email',
                 'slug' => 'success-donation',
                 'subject' => 'Thank you for your donation.',
