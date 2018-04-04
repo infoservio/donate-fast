@@ -1,12 +1,4 @@
 <?php
-/**
- * donations-free plugin for Craft CMS 3.x
- *
- * Free Braintree Donation System
- *
- * @link      https://endurant.org
- * @copyright Copyright (c) 2017 endurant
- */
 
 namespace infoservio\donatefast\services;
 
@@ -14,27 +6,20 @@ use craft\base\Component;
 
 use infoservio\donatefast\errors\DbDonationsPluginException;
 use infoservio\donatefast\records\Card as CardRecord;
-use infoservio\donatefast\models\Card;
-use infoservio\donatefast\models\Log;
+use infoservio\donatefast\models\Card as CardModel;
+use infoservio\donatefast\models\Log as LogModel;
 
-/**
- * Donate Service
- *
- * @author    infoservio
- * @package   Donationsfree
- * @since     1.0.0
- */
 class CardService extends Component
 {
     // Public Methods
     // =========================================================================
 
     /**
-     * @param Card $model
-     * @return CardRecord|null
+     * @param CardModel $model
+     * @return array
      * @throws DbDonationsPluginException
      */
-    public function save(Card $model)
+    public function save(CardModel $model)
     {
         if ($model->validate()) {
             $record = new CardRecord();
@@ -46,11 +31,11 @@ class CardService extends Component
                     $record->errors,
                     json_encode($record->toArray()),
                     __METHOD__,
-                    Log::CARD_LOGS
+                    LogModel::CARD_LOGS
                 );
             }
 
-            return $record;
+            return $record->getAttributes();
         }
 
         return null;

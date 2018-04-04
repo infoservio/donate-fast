@@ -1,27 +1,11 @@
 <?php
-/**
- * donations-free plugin for Craft CMS 3.x
- *
- * Free Braintree Donation System
- *
- * @link      https://endurant.org
- * @copyright Copyright (c) 2017 endurant
- */
 
 namespace infoservio\donatefast\controllers;
 
+use Craft;
 use craft\web\Controller;
 use infoservio\donatefast\DonateFast;
 
-/**
- * Invoice Controller
- *
- * https://craftcms.com/docs/plugins/controllers
- *
- * @author    infoservio
- * @package   Donationsfree
- * @since     1.0.0
- */
 class BaseController extends Controller
 {
     public $isUserHelpUs = false;
@@ -31,10 +15,11 @@ class BaseController extends Controller
 
     public function beforeAction($action)
     {
+        Craft::$app->response->format = \yii\web\Response::FORMAT_JSON;
         // ...set `$this->enableCsrfValidation` here based on some conditions...
         // call parent method that will check CSRF if such property is true.
         $this->enableCsrfValidation = false;
-        $this->isUserHelpUs = DonateFast::$PLUGIN->getSettings()->helpUsImproveOurProduct;
+        $this->isUserHelpUs = DonateFast::$plugin->getSettings()->helpUsImproveOurProduct;
         return parent::beforeAction($action);
     }
 }

@@ -39,7 +39,7 @@ class SettingsController extends BaseController
     public function actionSettings()
     {
         if ($post = Craft::$app->request->post()) {
-            DonateFast::$PLUGIN->plugin->update($post);
+            DonateFast::$plugin->plugin->update($post);
             return $this->redirect('donate-fastsettings');
         }
 

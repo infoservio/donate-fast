@@ -1,12 +1,4 @@
 <?php
-/**
- * donations-free plugin for Craft CMS 3.x
- *
- * Free Braintree Donation System
- *
- * @link      https://endurant.org
- * @copyright Copyright (c) 2017 endurant
- */
 
 namespace infoservio\donatefast\records;
 
@@ -45,7 +37,7 @@ class Charge extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{stripe_donation_charge}}';
+        return '{{donate_fast_charge}}';
     }
 
     public static function getColumns()

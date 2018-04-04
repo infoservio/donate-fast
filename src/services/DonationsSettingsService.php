@@ -1,45 +1,23 @@
 <?php
-/**
- * donations-free plugin for Craft CMS 3.x
- *
- * Free Braintree Donation System
- *
- * @link      https://endurant.org
- * @copyright Copyright (c) 2017 endurant
- */
 
 namespace infoservio\donatefast\services;
 
 use craft\base\Component;
 
 use infoservio\donatefast\records\StripeDonationSetting as StripeDonationSettingRecord;
-use infoservio\donatefast\models\StripeDonationSetting;
+use infoservio\donatefast\models\StripeDonationSetting as StripeDonationSettingModel;
 
-/**
- * Donate Service
- *
- * All of your plugin’s business logic should go in services, including saving data,
- * retrieving data, etc. They provide APIs that your controllers, template variables,
- * and other plugins can interact with.
- *
- * https://craftcms.com/docs/plugins/services
- *
- * @author    infoservio
- * @package   Donationsfree
- * @since     1.0.0
- */
 class DonationsSettingsService extends Component
 {
     // Public Methods
     // =========================================================================
 
     /**
-     * @param StripeDonationSetting $model
+     * @param StripeDonationSettingModel $model
      * @return array|null
-     * @throws \Exception
-     * @throws \yii\db\StaleObjectException
+     * @throws \Throwable
      */
-    public function update(StripeDonationSetting $model)
+    public function update(StripeDonationSettingModel $model)
     {
         if ($model->validate()) {
             $record = new StripeDonationSettingRecord();

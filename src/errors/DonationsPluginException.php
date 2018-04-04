@@ -21,7 +21,7 @@ class DonationsPluginException extends \Exception
         $this->message = $message;
         $this->method = $method;
 
-        $this->_logService = DonateFast::$PLUGIN->log;
+        $this->_logService = DonateFast::$plugin->log;
         $this->log($category);
     }
     

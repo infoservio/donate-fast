@@ -32,6 +32,6 @@ class StripeDonationSetting extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{stripe_donation_setting}}';
+        return '{{donate_fast_setting}}';
     }
 }

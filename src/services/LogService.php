@@ -1,25 +1,10 @@
 <?php
-/**
- * donations-free plugin for Craft CMS 3.x
- *
- * Free Braintree Donation System
- *
- * @link      https://endurant.org
- * @copyright Copyright (c) 2017 endurant
- */
 
 namespace infoservio\donatefast\services;
 
 use infoservio\donatefast\DonateFast;
 use craft\base\Component;
 
-/**
- * Log Service
- *
- * @author    infoservio
- * @package   Donationsfree
- * @since     1.0.0
- */
 class LogService extends Component
 {
     private $_donationLogger;
@@ -27,7 +12,7 @@ class LogService extends Component
     public function __construct()
     {
         parent::__construct();
-        $this->_donationLogger = DonateFast::$PLUGIN->donationLogger;
+        $this->_donationLogger = DonateFast::$plugin->donationLogger;
     }
 
     // Public Methods

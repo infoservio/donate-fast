@@ -45,7 +45,7 @@ use yii\base\Event;
  * @property  DonationService $donation
  * @property  DonationsSettingsService $donationSettings
  * @property  LogService $log
- * @property  PluginService $plugin
+ * @property  PluginService $pluginService
  * @property  StripeService $stripe
  * @property  StripeHttpClient $stripeClient
  * @property  Logger $donationLogger
@@ -63,7 +63,7 @@ class DonateFast extends Plugin
      *
      * @var DonateFast
      */
-    public static $PLUGIN;
+    public static $plugin;
 
     // Public Methods
     // =========================================================================
@@ -82,7 +82,7 @@ class DonateFast extends Plugin
     public function init()
     {
         parent::init();
-        self::$PLUGIN = $this;
+        self::$plugin = $this;
 
         Event::on(
             Plugins::class,
@@ -111,6 +111,8 @@ class DonateFast extends Plugin
             UrlManager::EVENT_REGISTER_SITE_URL_RULES,
             function (RegisterUrlRulesEvent $event) {
                 $event->rules['donate-fast/invoice/view'] = 'donate-fast/invoice/view';
+                $event->rules['donate-fast/donate'] = 'donate-fast/donation/donate';
+                $event->rules['donate-fast/test'] = 'donate-fast/test/index';
             }
         );
 

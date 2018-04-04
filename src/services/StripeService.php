@@ -1,12 +1,4 @@
 <?php
-/**
- * donations-free plugin for Craft CMS 3.x
- *
- * Free Braintree Donation System
- *
- * @link      https://endurant.org
- * @copyright Copyright (c) 2017 endurant
- */
 
 namespace infoservio\donatefast\services;
 
@@ -15,18 +7,12 @@ use craft\base\Component;
 use infoservio\donatefast\components\httpClient\stripe\StripeHttpClient;
 use infoservio\donatefast\DonateFast;
 use infoservio\donatefast\errors\StripeDonationsPluginException;
-use infoservio\donatefast\models\Customer;
-use infoservio\donatefast\models\Card;
-use infoservio\donatefast\models\Charge;
-use infoservio\donatefast\models\Log;
+use infoservio\donatefast\models\Customer as CustomerModel;
+use infoservio\donatefast\models\Card as CardModel;
+use infoservio\donatefast\models\Charge as ChargeModel;
+use infoservio\donatefast\models\Log as LogModel;
+use Stripe\Customer;
 
-/**
- * Stripe Service
- *
- * @author    infoservio
- * @package   Donationsfree
- * @since     1.0.0
- */
 class StripeService extends Component
 {
     /** @var StripeHttpClient $object */
@@ -37,17 +23,17 @@ class StripeService extends Component
     public function init()
     {
         parent::init();
-        $this->_httpClient = DonateFast::$PLUGIN->stripeClient;
+        $this->_httpClient = DonateFast::$plugin->stripeClient;
     }
 
 
     /**
-     * @param Customer $customer
+     * @param CustomerModel $customer
      * @param string $token
-     * @return \Stripe\Customer
+     * @return Customer
      * @throws StripeDonationsPluginException
      */
-    public function createCustomer(Customer &$customer, string $token)
+    public function createCustomer(CustomerModel &$customer, string $token)
     {
         $result = $this->_httpClient->createCustomer($customer, $token);
 
@@ -56,7 +42,7 @@ class StripeService extends Component
                 $result->errors->deepAll(),
                 $result->message,
                 __METHOD__,
-                Log::CUSTOMER_LOGS
+                LogModel::CUSTOMER_LOGS
             );
         }
 
@@ -65,14 +51,14 @@ class StripeService extends Component
     }
 
     /**
-     * @param Charge $charge
-     * @param Card $card
-     * @param Customer $customer
+     * @param ChargeModel $charge
+     * @param CardModel $card
+     * @param CustomerModel $customer
      * @param bool $sendStripeEmailReceipt
      * @return mixed
      * @throws StripeDonationsPluginException
      */
-    public function createCharge(Charge &$charge, Card &$card, Customer $customer, bool $sendStripeEmailReceipt = false)
+    public function createCharge(ChargeModel &$charge, CardModel &$card, CustomerModel $customer, bool $sendStripeEmailReceipt = false)
     {
         $result = $this->_httpClient->createCharge($customer, $charge, $sendStripeEmailReceipt);
 
@@ -81,7 +67,7 @@ class StripeService extends Component
                 $result->errors->deepAll(),
                 $result->message,
                 __METHOD__,
-                Log::CHARGE_LOGS
+                LogModel::CHARGE_LOGS
             );
         }
 

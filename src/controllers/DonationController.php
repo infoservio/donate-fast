@@ -18,6 +18,7 @@ use craft\web\Controller;
 use infoservio\donatefast\assetbundles\bootstrap\StripeDonationBootstrapAssetBundle;
 use infoservio\donatefast\errors\DonationsPluginException;
 use infoservio\donatefast\records\StripeDonationSetting;
+use yii\web\BadRequestHttpException;
 
 /**
  * Donation Controller
@@ -51,14 +52,7 @@ class DonationController extends Controller
 
     public function actionSuccess()
     {
-        $view = $this->getView();
-
-        $view->setTemplatesPath($this->getViewPath());
-        // Include all the JS and CSS stuff
-        $view->registerAssetBundle(StripeDonationBootstrapAssetBundle::class);
-
         $successMessage = StripeDonationSetting::find()->where(['name' => 'successMessage'])->one()->value;
-
         $resetForm = Craft::$app->session->get('donation');
 
         return $this->renderTemplate('donation-success', [
@@ -70,12 +64,6 @@ class DonationController extends Controller
 
     public function actionError() 
     {
-        $view = $this->getView();
-
-        $view->setTemplatesPath($this->getViewPath());
-        // Include all the JS and CSS stuff
-        $view->registerAssetBundle(StripeDonationBootstrapAssetBundle::class);
-
         $errorMessage = StripeDonationSetting::find()->where(['name' => 'errorMessage'])->one()->value;
 
         return $this->renderTemplate('donation-error', [
@@ -93,14 +81,19 @@ class DonationController extends Controller
     {
         $this->requirePostRequest();
         $post = Craft::$app->request->getBodyParams();
+die(json_encode($post));
 
-        try {
-            DonateFast::$PLUGIN->donation->donate($post);
-        } catch (\Exception $e) {
-            return $this->redirect('/actions/donate-fast/donation/error');
+        if (!$post) {
+            throw new BadRequestHttpException('Wrong data.');
         }
 
-        Craft::$app->session->set('donation', $post);
-        return $this->redirect('/actions/donate-fast/donation/success');
+//        try {
+//            DonateFast::$plugin->donation->donate($post);
+//        } catch (\Exception $e) {
+//            return $this->redirect('/actions/donate-fast/donation/error');
+//        }
+//
+//        Craft::$app->session->set('donation', $post);
+//        return $this->redirect('/actions/donate-fast/donation/success');
     }
 }

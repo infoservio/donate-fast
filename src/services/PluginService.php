@@ -1,30 +1,15 @@
 <?php
-/**
- * donations-free plugin for Craft CMS 3.x
- *
- * Free Braintree Donation System
- *
- * @link      https://endurant.org
- * @copyright Copyright (c) 2017 endurant
- */
 
 namespace infoservio\donatefast\services;
 
 use craft\base\Component;
-use infoservio\donatefast\records\StripeDonationSetting;
+use infoservio\donatefast\records\StripeDonationSetting as StripeDonationSettingRecord;
 
-/**
- * Plugin Service
- *
- * @author    infoservio
- * @package   Donationsfree
- * @since     1.0.0
- */
 class PluginService extends Component
 {
     public function update(array $post)
     {
-        $settings = StripeDonationSetting::find()->all();
+        $settings = StripeDonationSettingRecord::find()->all();
 
         foreach ($settings as $setting) {
 

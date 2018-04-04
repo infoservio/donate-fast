@@ -36,6 +36,6 @@ class Log extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{stripe_donation_log}}';
+        return '{{donate_fast_log}}';
     }
 }

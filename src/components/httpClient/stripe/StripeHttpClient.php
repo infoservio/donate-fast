@@ -20,7 +20,7 @@ class StripeHttpClient extends Component
     function __construct()
     {
         parent::__construct();
-        $this->_settings = DonateFast::$PLUGIN->getSettings();
+        $this->_settings = DonateFast::$plugin->getSettings();
 
         // Configuration of Stripe
         Stripe::setApiKey($this->_settings->stripeSecretKey);

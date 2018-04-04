@@ -27,12 +27,6 @@
         "yiisoft/yii2": "^2.0",
         "stripe/stripe-php": "^5.7"
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://oms:Ap5AJN86bLg93dxX@composer.oms.systems"
-        }
-    ],
     "autoload": {
         "psr-4": {
           "infoservio\\donatefast\\": "src/"
@@ -53,7 +47,7 @@
             "charge": "infoservio\\donatefast\\services\\ChargeService",
             "log": "infoservio\\donatefast\\services\\LogService",
             "donationSetting": "infoservio\\donatefast\\services\\DonationsSettingsService",
-            "plugin": "infoservio\\donatefast\\services\\PluginService",
+            "pluginService": "infoservio\\donatefast\\services\\PluginService",
             "stripeClient": "infoservio\\donatefast\\components\\httpClient\\stripe\\StripeHttpClient",
             "donationLogger": "infoservio\\donatefast\\components\\logger\\Logger"
         },

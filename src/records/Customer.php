@@ -34,6 +34,6 @@ class Customer extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{stripe_donation_customer}}';
+        return '{{donate_fast_customer}}';
     }
 }

@@ -1,32 +1,16 @@
 <?php
-/**
- * donations-free plugin for Craft CMS 3.x
- *
- * Free Braintree Donation System
- *
- * @link      https://endurant.org
- * @copyright Copyright (c) 2017 endurant
- */
 
 namespace infoservio\donatefast\services;
 
 use craft\base\Component;
 
-use infoservio\fastsendnote\FastSendNote;
 use infoservio\donatefast\errors\StripeDonationsPluginException;
 use infoservio\donatefast\models\StripeDonationSetting;
 use infoservio\donatefast\DonateFast;
-use infoservio\donatefast\models\Customer;
-use infoservio\donatefast\models\Card;
-use infoservio\donatefast\models\Charge;
+use infoservio\donatefast\models\Customer as CustomerModel;
+use infoservio\donatefast\models\Card as CardModel;
+use infoservio\donatefast\models\Charge as ChargeModel;
 
-/**
- * Donation Service
- *
- * @author    infoservio
- * @package   Donationsfree
- * @since     1.0.0
- */
 class DonationService extends Component
 {
     // Public Methods
@@ -40,10 +24,10 @@ class DonationService extends Component
     {
         $settings = StripeDonationSetting::getSettingsArr();
 
-        $plugin = DonateFast::$PLUGIN;
-        $customer = Customer::create($params);
-        $card = new Card();
-        $charge = new Charge();
+        $plugin = DonateFast::$plugin;
+        $customer = CustomerModel::create($params);
+        $card = new CardModel();
+        $charge = new ChargeModel();
         $charge->amount = intval($params['amount']) * 100;
         $charge->projectId = intval($params['projectId']);
         $charge->projectName = $params['projectName'];
@@ -62,23 +46,12 @@ class DonationService extends Component
             $charge = $plugin->charge->save($charge);
         } catch (\Exception $e) {
             // test
+            die($e->getTraceAsString());
         }
 
         // sending email
         if(!$plugin->getSettings()->sendStripeEmailReceipt) {
-            FastSendNote::$plugin->mail->send($customer->email, 'success-donation', [
-                'companyName' => $settings['companyName'],
-                'companyAddress' => $settings['companyAddress'],
-                'companyTelephone' => $settings['companyTelephone'],
-                'companyEmail' => $settings['companyEmail'],
-                'userName' => 'Not Found',
-                'userAddress' => 'Not Found',
-                'userEmail' => $customer->email,
-                'invoiceId' => $charge->chargeId,
-                'invoiceDescription' => $charge->projectName,
-                'invoiceSum' => $charge->amount / 100,
-                'invoiceDate' => $charge->created
-            ], $charge->chargeId);
+            // TODO send email receipt
         }
     }
 }

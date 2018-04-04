@@ -16,8 +16,8 @@ class Settings extends Model
     // Public Properties
     // =========================================================================
 
-    public $stripeSecretKey = 'sk_test_BQokikJOvBiI2HlWgH4olfQ2';
-    public $stripePublishableKey = 'pk_test_6pRNASCoBOKtIshFeQd4XMUh';
+    public $stripeSecretKey = 'sk_test_238KrMHPdX3dQbQDOaO0lODo';
+    public $stripePublishableKey = 'pk_test_uBbZUnxUMQ8BPLLMI2aSCoct';
     public $helpUsImproveOurProduct = false;
     public $sendStripeEmailReceipt = false;
 

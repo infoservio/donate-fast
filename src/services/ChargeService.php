@@ -1,12 +1,4 @@
 <?php
-/**
- * donations-free plugin for Craft CMS 3.x
- *
- * Free Braintree Donation System
- *
- * @link      https://endurant.org
- * @copyright Copyright (c) 2017 endurant
- */
 
 namespace infoservio\donatefast\services;
 
@@ -14,27 +6,20 @@ use craft\base\Component;
 
 use infoservio\donatefast\errors\DbDonationsPluginException;
 use infoservio\donatefast\records\Charge as TransactionRecord;
-use infoservio\donatefast\models\Charge;
-use infoservio\donatefast\models\Log;
+use infoservio\donatefast\models\Charge as ChargeModel;
+use infoservio\donatefast\models\Log as LogModel;
 
-/**
- * Charge Service
- *
- * @author    infoservio
- * @package   Donationsfree
- * @since     1.0.0
- */
 class ChargeService extends Component
 {
     // Public Methods
     // =========================================================================
 
     /**
-     * @param Charge $model
+     * @param ChargeModel $model
      * @return TransactionRecord|null
      * @throws DbDonationsPluginException
      */
-    public function save(Charge $model)
+    public function save(ChargeModel $model)
     {
         if ($model->validate()) {
             $record = new TransactionRecord();
@@ -46,7 +31,7 @@ class ChargeService extends Component
                     $record->errors,
                     json_encode($record->toArray()),
                     __METHOD__,
-                    Log::CHARGE_LOGS
+                    LogModel::CHARGE_LOGS
                 );
             }
 

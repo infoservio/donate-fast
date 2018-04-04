@@ -1,13 +1,4 @@
 <?php
-/**
- * donations-free plugin for Craft CMS 3.x
- *
- * Free Braintree Donation System
- *
- * @link      https://endurant.org
- * @copyright Copyright (c) 2017 endurant
- */
-
 namespace infoservio\donatefast\records;
 
 use craft\db\ActiveRecord;
@@ -38,7 +29,7 @@ class Card extends ActiveRecord
      */
     public static function tableName()
     {
-        return '{{stripe_donation_card}}';
+        return '{{donate_fast_card}}';
     }
 
     public function getCustomer()
