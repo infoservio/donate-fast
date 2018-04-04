@@ -26,16 +26,11 @@ class Install extends Migration
      */
     public function safeUp()
     {
-        // install Mail Manager Plugin
-        Craft::$app->getPlugins()->installPlugin('fast-sendnote');
-
         $this->createTables();
         // $this->createIndexes();
 //        $this->addForeignKeys();
         // Refresh the db schema caches
         Craft::$app->db->schema->refresh();
-
-        $this->insertDefaultData();
 
         return true;
     }
@@ -61,8 +56,8 @@ class Install extends Migration
 
     private function createTables()
     {
-        if (!$this->tableExists('stripe_donation_charge')) {
-            $this->createTable('stripe_donation_charge', [
+        if (!$this->tableExists('donate_fast_charge')) {
+            $this->createTable('donate_fast_charge', [
                 'id' => $this->primaryKey(),
                 'chargeId' => $this->string(50),
                 'cardId' => $this->integer(),
@@ -83,8 +78,8 @@ class Install extends Migration
             ]);
         }
 
-        if (!$this->tableExists('stripe_donation_card')) {
-            $this->createTable('stripe_donation_card', [
+        if (!$this->tableExists('donate_fast_card')) {
+            $this->createTable('donate_fast_card', [
                 'id' => $this->primaryKey(),
                 'tokenId' => $this->string(50),
                 'customerId' => $this->integer(),
@@ -100,8 +95,8 @@ class Install extends Migration
             ]);
         }
 
-        if (!$this->tableExists('stripe_donation_customer')) {
-            $this->createTable('stripe_donation_customer', [
+        if (!$this->tableExists('donate_fast_customer')) {
+            $this->createTable('donate_fast_customer', [
                 'id' => $this->primaryKey(),
                 'customerId' => $this->string(36),
                 'email' => $this->string(50),
@@ -113,8 +108,8 @@ class Install extends Migration
             ]);
         }
 
-        if (!$this->tableExists('stripe_donation_log')) {
-            $this->createTable('stripe_donation_log', [
+        if (!$this->tableExists('donate_fast_log')) {
+            $this->createTable('donate_fast_log', [
                 'id' => $this->primaryKey(),
                 'pid' => $this->integer(),
                 'culprit' => $this->integer(),
@@ -128,8 +123,8 @@ class Install extends Migration
             ]);
         }
 
-        if (!$this->tableExists('stripe_donation_setting')) {
-            $this->createTable('stripe_donation_setting', [
+        if (!$this->tableExists('donate_fast_setting')) {
+            $this->createTable('donate_fast_setting', [
                 'id' => $this->primaryKey(),
                 'name' => $this->string(255)->unique(),
                 'value' => $this->text(),
@@ -146,79 +141,57 @@ class Install extends Migration
     {
         $this->addForeignKey(
             'fk-donate-fast-charge-card',
-            'stripe_donation_charge',
+            'donate_fast_charge',
             'cardId',
-            'stripe_donation_card',
+            'donate_fast_card',
             'id'
         );
 
         $this->addForeignKey(
             'fk-donate-fast-card-customer',
-            'stripe_donation_card',
+            'donate_fast_card',
             'customerId',
-            'stripe_donation_customer',
+            'donate_fast_customer',
             'id'
         );
     }
 
     private function removeTables()
     {
-//        $this->dropTableIfExists('stripe_donation_setting');
+//        $this->dropTableIfExists('donate_fast_setting');
     }
-
-    private function insertDefaultData()
-    {
-        $this->insertMailManagerTemplate();
-    }
-
 
     private function insertDonationsSettingsDefaultValue()
     {
-        $this->insert('stripe_donation_setting', [
+        $this->insert('donate_fast_setting', [
             'name' => 'successMessage',
             'value' => 'Success Message'
         ]);
 
-        $this->insert('stripe_donation_setting', [
+        $this->insert('donate_fast_setting', [
             'name' => 'errorMessage',
             'value' => 'Error Message'
         ]);
 
-        $this->insert('stripe_donation_setting', [
+        $this->insert('donate_fast_setting', [
             'name' => 'companyName',
             'value' => 'Non-profit company Name'
         ]);
 
-        $this->insert('stripe_donation_setting', [
+        $this->insert('donate_fast_setting', [
             'name' => 'companyTelephone',
             'value' => 'Telephone number'
         ]);
 
-        $this->insert('stripe_donation_setting', [
+        $this->insert('donate_fast_setting', [
             'name' => 'companyAddress',
             'value' => 'Address'
         ]);
 
-        $this->insert('stripe_donation_setting', [
+        $this->insert('donate_fast_setting', [
             'name' => 'companyEmail',
             'value' => 'company@email.com'
         ]);
-    }
-
-    private function insertMailManagerTemplate()
-    {
-        $content = file_get_contents($this->_successDonationTemplatePath);
-
-        try {
-            $this->insert('fastsendnote_template', [
-                'name' => 'Success Donation Email',
-                'slug' => 'success-donation',
-                'subject' => 'Thank you for your donation.',
-                'template' => $content
-            ]);
-        } catch (\Exception $e) {
-            // test
-        }
     }
 
     private function tableExists($table)
