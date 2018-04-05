@@ -60,9 +60,8 @@ class InvoiceController extends BaseController
      * @return \yii\web\Response
      * @throws BadRequestHttpException
      */
-    public function actionView()
+    public function actionView($id)
     {
-        $id = Craft::$app->request->getParam('id');
         if (!$id) {
             throw new BadRequestHttpException('Charge ID not found');
         }

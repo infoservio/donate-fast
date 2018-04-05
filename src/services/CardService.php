@@ -16,7 +16,7 @@ class CardService extends Component
 
     /**
      * @param CardModel $model
-     * @return array
+     * @return CardRecord
      * @throws DbDonationsPluginException
      */
     public function save(CardModel $model)
@@ -35,7 +35,7 @@ class CardService extends Component
                 );
             }
 
-            return $record->getAttributes();
+            return $record;
         }
 
         return null;

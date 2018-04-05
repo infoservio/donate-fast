@@ -13,10 +13,6 @@ namespace infoservio\donatefast\controllers;
 use infoservio\donatefast\DonateFast;
 
 use Craft;
-use craft\web\Controller;
-
-use infoservio\donatefast\assetbundles\bootstrap\StripeDonationBootstrapAssetBundle;
-use infoservio\donatefast\errors\DonationsPluginException;
 use infoservio\donatefast\records\StripeDonationSetting;
 use yii\web\BadRequestHttpException;
 
@@ -27,7 +23,7 @@ use yii\web\BadRequestHttpException;
  * @package   Donationsfree
  * @since     1.0.0
  */
-class DonationController extends Controller
+class DonationController extends BaseController
 {
     // Protected Properties
     // =========================================================================
@@ -41,14 +37,6 @@ class DonationController extends Controller
 
     // Public Methods
     // =========================================================================
-
-    public function beforeAction($action)
-    {
-        // ...set `$this->enableCsrfValidation` here based on some conditions...
-        // call parent method that will check CSRF if such property is true.
-        $this->enableCsrfValidation = false;
-        return parent::beforeAction($action);
-    }
 
     public function actionSuccess()
     {
@@ -64,36 +52,43 @@ class DonationController extends Controller
 
     public function actionError() 
     {
-        $errorMessage = StripeDonationSetting::find()->where(['name' => 'errorMessage'])->one()->value;
+        $view = $this->getView();
+        $view->setTemplatesPath($this->getViewPath());
 
-        return $this->renderTemplate('donation-error', [
-            'errorMessage' => $errorMessage,
-            'baseUrl' => Craft::$app->session->get('baseUrl') ? Craft::$app->session->get('baseUrl') : '/'
-        ]);
+        try {
+            $errorMessage = StripeDonationSetting::find()->where(['name' => 'errorMessage'])->one()->value;
+
+            return $this->renderTemplate('donation-error', [
+                'errorMessage' => $errorMessage,
+                'baseUrl' => Craft::$app->session->get('baseUrl') ? Craft::$app->session->get('baseUrl') : '/'
+            ]);
+        } catch (\Exception $e) {
+            die($e->getMessage());
+        }
     }
 
 
     /**
      * @return \yii\web\Response
      * @throws \yii\web\BadRequestHttpException
+     * @throws \infoservio\donatefast\errors\StripeDonationsPluginException
      */
     public function actionDonate()
     {
         $this->requirePostRequest();
         $post = Craft::$app->request->getBodyParams();
-die(json_encode($post));
 
         if (!$post) {
             throw new BadRequestHttpException('Wrong data.');
         }
 
-//        try {
-//            DonateFast::$plugin->donation->donate($post);
-//        } catch (\Exception $e) {
-//            return $this->redirect('/actions/donate-fast/donation/error');
-//        }
-//
-//        Craft::$app->session->set('donation', $post);
-//        return $this->redirect('/actions/donate-fast/donation/success');
+        try {
+            DonateFast::$plugin->donation->donate($post);
+        } catch (\Exception $e) {
+            return $this->redirect('/donate-fast/error');
+        }
+
+        Craft::$app->session->set('donation', $post);
+        return $this->redirect('/donate-fast/success');
     }
 }

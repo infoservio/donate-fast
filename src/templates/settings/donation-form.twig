@@ -25,102 +25,25 @@
     <p>Please hover over the box below and select the 'copy' icon to the right side of each box.  Paste this code in your page to display your donation form.  You can change the word <code class="language-html">value="Donate"</code> to replace the text on the Donate button.</p>
     <pre>
         <code class="language-html">
-        {{
-        '<form action="/actions/donate-fast/donation/donate" method="post">
-          <input type="hidden" name="projectId" value="1">
-          <input type="hidden" name="projectName" value="40authors manifesto">
-          <input type="hidden" name="fixedAmount" value="5000">
-          <span class="dollar">$</span><input id="amount" type="number" name="amount" class="donate-field" placeholder="Enter amount here..." min="0" />
-          <input id="donate-btn" class="btn" value="Donate" />
-        </form>'| escape('html') }}
+        {{ '
+    <form id="donate-fast-form" action="/donate-fast/donate" method="post">
+       <input id="amount" type="number" name="amount">
+       <button id="donate-btn" class="btn">Donate</button>
+    </form>
+    <script id="donate-fast-script" src="*"
+       data-stripe-public-key="your_stripe_public_key"
+       data-stripe-form-name="Donation"
+       data-stripe-form-description="One-time donation"
+       data-form-id="donate-fast-form"
+       data-btn-id="donate-btn"
+       data-amount="100"
+       data-amount-min="5"
+       data-amount-default-validation="true"
+       data-amount-input-id="amount"
+       data-amount-fixed="false"
+       data-additional-information="true"
+       data-project-id="1"
+       data-project-name="name"></script>'| escape('html') }}
         </code>
     </pre>
-    <pre>
-        <code class="language-javascript">
-            {{ '<script src="https://checkout.stripe.com/checkout.js"></script>
-   var handler = StripeCheckout.configure({
-           key: "pk_test_uBbZUnxUMQ8BPLLMI2aSCoct",
-           locale: "auto",
-           name: "Sand Castles United",
-           description: "One-time donation",
-           token: function(token) {
-                $("input#stripeToken").val(token.id);
-                $("form").submit();
-           }
-   });
-
-   $("#amount").keypress(function (e) {
-       var keyCode = e.charCode || e.keyCode;
-       if (keyCode == 45 || keyCode == 101) {
-            e.preventDefault();
-            return false;
-       }
-   });
-
-   $("#donate-btn").click((e) => {
-        if (!validate()) {
-           return false;
-        }
-        e.preventDefault();
-
-        $("#error_explanation").html("");
-
-        var amount = $("input#amount").val();
-        amount = amount.replace(/\$/g, "").replace(/\,/g, "");
-        amount = parseFloat(amount);
-
-        if (isNaN(amount)) {
-           $("#error_explanation").html("<p>Please enter a valid amount in USD ($).</p>");
-        } else if (amount < 5.00) {
-            $("#error_explanation").html("<p>Donation amount must be at least $5.</p>");
-        } else {
-            amount = amount * 100; // Needs to be an integer!
-            handler.open({
-                amount: Math.round(amount)
-            })
-        }
-   });
-
-   function validate() {
-        if ($("#amount").val() <= 0 || !$("#amount").val()) {
-            $("#amount").addClass("error");
-            return false;
-        }
-
-        $("#amount").removeClass("error");
-
-        return true;
-   }' }}
-        </code>
-    </pre>
-    <p>Below is code to copy paste into your CSS file</p>
-    <pre><code class="language-css">
-            .dollar {
-            font-size: 28;
-            margin-right: 10px
-        }
-        .donate-field {
-            font-size: 14px;
-            height: 40px;
-            padding-right: 40px;
-            padding-left: 16px;
-            color: rgba(46, 46, 46, .8);
-            border-radius: 4px;
-            outline: none;
-            border: 1px solid rgb(225, 225, 225);
-        }
-        .btn {
-            font-size: 16px;
-            width: 163px;
-            height: 38px;
-            cursor: pointer;
-            transition: all .2s ease-in-out;
-            letter-spacing: 1px;
-            border: none;
-            border-radius: 23px;
-            color: #fff !important;
-            background: #f62f5e !important;
-            padding: 0 !important;
-        }
-    </code></pre>
 {% endblock %}

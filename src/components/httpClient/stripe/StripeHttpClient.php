@@ -54,7 +54,7 @@ class StripeHttpClient extends Component
     public function createCharge(Customer $customer, Charge $charge, bool $sendStripeEmailReceipt = false)
     {
         $params = [
-            'amount' => $charge->amount,
+            'amount' => $charge->amount * 100,
             "currency" => "usd",
             'customer' => $customer->customerId,
             'metadata' => [

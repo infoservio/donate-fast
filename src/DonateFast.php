@@ -112,6 +112,8 @@ class DonateFast extends Plugin
             function (RegisterUrlRulesEvent $event) {
                 $event->rules['donate-fast/invoice/view'] = 'donate-fast/invoice/view';
                 $event->rules['donate-fast/donate'] = 'donate-fast/donation/donate';
+                $event->rules['donate-fast/error'] = 'donate-fast/donation/error';
+                $event->rules['donate-fast/success'] = 'donate-fast/donation/success';
                 $event->rules['donate-fast/test'] = 'donate-fast/test/index';
             }
         );

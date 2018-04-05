@@ -3,7 +3,6 @@
 namespace infoservio\donatefast\records;
 
 use craft\db\ActiveRecord;
-use infoservio\fastsendnote\records\Mail;
 
 /**
  * Charge Record
@@ -42,7 +41,7 @@ class Charge extends ActiveRecord
 
     public static function getColumns()
     {
-        return ['ID', 'Charge ID', 'Email', 'Project', 'Amount', 'Created', 'Email Status'];
+        return ['ID', 'Charge ID', 'Email', 'Project', 'Amount', 'Date Created'];
     }
 
     public static function getAll()
@@ -65,15 +64,10 @@ class Charge extends ActiveRecord
     }
 
     /**
-     * @return array|null|\yii\db\ActiveRecord
+     * @return array|null|\yii\db\ActiveRecord|Card
      */
     public function getCard()
     {
         return Card::find()->where(['id' => $this->cardId])->one();
-    }
-
-    public function getMail()
-    {
-        return Mail::find()->where(['customId' => $this->chargeId])->one();
     }
 }
