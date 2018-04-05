@@ -40,6 +40,9 @@ class DonationController extends BaseController
 
     public function actionSuccess()
     {
+        $view = $this->getView();
+        $view->setTemplatesPath($this->getViewPath());
+
         $successMessage = StripeDonationSetting::find()->where(['name' => 'successMessage'])->one()->value;
         $resetForm = Craft::$app->session->get('donation');
 
