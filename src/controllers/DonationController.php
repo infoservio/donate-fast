@@ -44,7 +44,7 @@ class DonationController extends BaseController
         $resetForm = Craft::$app->session->get('donation');
 
         return $this->renderTemplate('donation-success', [
-            'baseUrl' => (Craft::$app->session->get('baseUrl') ? Craft::$app->session->get('baseUrl') : '/'),
+            'baseUrl' => $resetForm['currentUrl'],
             'successMessage' => $successMessage,
             'resetForm' => $resetForm,
         ]);
@@ -54,19 +54,19 @@ class DonationController extends BaseController
     {
         $view = $this->getView();
         $view->setTemplatesPath($this->getViewPath());
+        $resetForm = Craft::$app->session->get('donation');
 
         try {
             $errorMessage = StripeDonationSetting::find()->where(['name' => 'errorMessage'])->one()->value;
 
             return $this->renderTemplate('donation-error', [
                 'errorMessage' => $errorMessage,
-                'baseUrl' => Craft::$app->session->get('baseUrl') ? Craft::$app->session->get('baseUrl') : '/'
+                'baseUrl' => $resetForm['currentUrl']
             ]);
         } catch (\Exception $e) {
             die($e->getMessage());
         }
     }
-
 
     /**
      * @return \yii\web\Response
@@ -82,13 +82,13 @@ class DonationController extends BaseController
             throw new BadRequestHttpException('Wrong data.');
         }
 
+        Craft::$app->session->set('donation', $post);
         try {
             DonateFast::$plugin->donation->donate($post);
         } catch (\Exception $e) {
             return $this->redirect('/donate-fast/error');
         }
 
-        Craft::$app->session->set('donation', $post);
         return $this->redirect('/donate-fast/success');
     }
 }

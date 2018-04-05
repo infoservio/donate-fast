@@ -46,6 +46,7 @@
             "customer": "infoservio\\donatefast\\services\\CustomerService",
             "charge": "infoservio\\donatefast\\services\\ChargeService",
             "log": "infoservio\\donatefast\\services\\LogService",
+            "sendEmail": "infoservio\\donatefast\\services\\SendEmailService",
             "donationSetting": "infoservio\\donatefast\\services\\DonationsSettingsService",
             "pluginService": "infoservio\\donatefast\\services\\PluginService",
             "stripeClient": "infoservio\\donatefast\\components\\httpClient\\stripe\\StripeHttpClient",

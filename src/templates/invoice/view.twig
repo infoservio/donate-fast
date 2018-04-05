@@ -1,6 +1,32 @@
+{% extends "_layouts/cp" %}
+
+{% do view.registerAssetBundle("infoservio\\donatefast\\assetbundles\\sidebar\\SidebarAssetBundle") %}
 {% if isUserHelpUs %}
     {% do view.registerAssetBundle("infoservio\\donatefast\\assetbundles\\logrocket\\LogRocketAssetBundle") %}
 {% endif %}
-{% autoescape %}
-    {{ template|raw }}
-{% endautoescape %}
+
+{% set title = "View Invoice Manager"|t('app') %}
+{% block sidebar %}
+    <div class="sidebar-header">
+        <h3>Sidebar Menu</h3>
+    </div>
+
+    <!-- Sidebar Links -->
+    <ul class="list-unstyled components">
+        <li class="active sidebar-item"><a href="/admin/donate-fast/invoice">Invoice Manager <i class="sidebar-icon material-icons">keyboard_arrow_right</i></a></li>
+        <li class="sidebar-item"><a href="/admin/donate-fast/settings">Settings Manager</a></li>
+        <li class="sidebar-item"><a href="/admin/donate-fast/donation-form">Using Donate Fast</a></li>
+    </ul>
+{% endblock %}
+{% block content %}
+    <iframe id="receipt" width="100%" height="100%"></iframe>
+    <script>
+        let template = `{{ template|raw }}`;
+        let iframe = document.getElementById('receipt');
+        iframe = iframe.contentWindow || ( iframe.contentDocument.document || iframe.contentDocument);
+
+        iframe.document.open();
+        iframe.document.write(template);
+        iframe.document.close();
+    </script>
+{% endblock %}

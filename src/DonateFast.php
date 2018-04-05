@@ -22,6 +22,7 @@ use infoservio\donatefast\services\DonationService;
 use infoservio\donatefast\services\DonationsSettingsService;
 use infoservio\donatefast\services\LogService;
 use infoservio\donatefast\services\PluginService;
+use infoservio\donatefast\services\SendEmailService;
 use infoservio\donatefast\services\StripeService;
 use yii\base\Event;
 
@@ -47,6 +48,7 @@ use yii\base\Event;
  * @property  LogService $log
  * @property  PluginService $pluginService
  * @property  StripeService $stripe
+ * @property  SendEmailService $sendEmail
  * @property  StripeHttpClient $stripeClient
  * @property  Logger $donationLogger
  * @property  Settings $settings

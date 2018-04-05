@@ -11,6 +11,9 @@
 namespace infoservio\donatefast\controllers;
 
 use Craft;
+use craft\mail\Message;
+use infoservio\donatefast\components\TemplateParser;
+use infoservio\donatefast\DonateFast;
 use infoservio\fastsendnote\FastSendNote;
 use infoservio\donatefast\models\StripeDonationSetting;
 use infoservio\donatefast\records\Charge;
@@ -65,32 +68,19 @@ class InvoiceController extends BaseController
         if (!$id) {
             throw new BadRequestHttpException('Charge ID not found');
         }
-        $record = Charge::getById($id);
+        $charge = Charge::getById($id);
 
-        if (!$record) {
+        if (!$charge) {
             return $this->redirect('donate-fast/not-found');
         }
 
-        $card = $record->getCard();
+        $card = $charge->getCard();
         $customer = $card->getCustomer();
         $settings = StripeDonationSetting::getSettingsArr();
-        $template = TemplateRecord::getBySlug('success-donation');
-        $parsedTemplate = FastSendNote::$plugin->templateParser->parse($template->template, [
-            'companyName' => $settings['companyName'],
-            'companyAddress' => $settings['companyAddress'],
-            'companyTelephone' => $settings['companyTelephone'],
-            'companyEmail' => $settings['companyEmail'],
-            'userName' => 'Not Found',
-            'userAddress' => 'Not Found',
-            'userEmail' => $customer->email,
-            'invoiceId' => $record->chargeId,
-            'invoiceDescription' => $record->projectName,
-            'invoiceSum' => $record->amount / 100,
-            'invoiceDate' => $record->created
-        ]);
+        $template = TemplateParser::parseReceiptTemplate($settings, $customer, $charge);
 
         return $this->renderTemplate('donate-fast/invoice/view', [
-            'template' => $parsedTemplate,
+            'template' => $template,
             'isUserHelpUs' => $this->isUserHelpUs
         ]);
     }
@@ -115,18 +105,6 @@ class InvoiceController extends BaseController
         $card = $record->getCard();
         $customer = $card->getCustomer();
         $settings = StripeDonationSetting::getSettingsArr();
-        return FastSendNote::$plugin->mail->send($customer->email, 'success-donation', [
-            'companyName' => $settings['companyName'],
-            'companyAddress' => $settings['companyAddress'],
-            'companyTelephone' => $settings['companyTelephone'],
-            'companyEmail' => $settings['companyEmail'],
-            'userName' => 'Not Found',
-            'userAddress' => 'Not Found',
-            'userEmail' => $customer->email,
-            'invoiceId' => $record->chargeId,
-            'invoiceDescription' => $record->projectName,
-            'invoiceSum' => $record->amount / 100,
-            'invoiceDate' => $record->created
-        ], $record->chargeId);
+        return DonateFast::$plugin->sendEmail->send($settings, $customer, $record);
     }
 }
