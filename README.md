@@ -75,10 +75,20 @@ https://sandbox.infoserv.org/stripe
 
 ## Configuring
 
-1. You have to fill in stripe keys in settings of the donate-fast.
-    Go to Settings -> Plugins -> Donate Fast ---- Settings
-2. You have to fill in information about your non-profit organizations and success with error messages for users.
-    Go to Donate Fast -> Settings
+##### You have to fill in stripe keys in settings of the donate-fast.
+Go to Settings -> Plugins -> Donate Fast ---- Settings
+###### Where to get stripe tokens:
+API credentials are unique account identifiers that must be added to your code before you can process payments via the     API. Think of them as your username and password to payment processing.
+This is your user-specific public identifier. Each user associated with your Stripe gateway will have their own public and private keys.
+To find your keys:
+- Log into either the production Control Panel or the sandbox Control Panel, depending on which environment you are working in
+- Navigate to Account > My User
+- Under API Keys, Token Keys, Encryption Keys, click View Authorizations
+
+You'll find your keys under the API Keys section at the top. If no API keys appear, click Generate New API Key.
+
+##### You should also fill in information about your non-profit organizations and success with error messages for users.
+Go to Donate Fast -> Settings
 
 ## Roadmap
 
