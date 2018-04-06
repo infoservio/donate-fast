@@ -82,7 +82,7 @@ class StripeService extends Component
 
         // Set up charge
         $charge->chargeId = $result->id;
-        $charge->amount = $result->amount;
+//        $charge->amount = $result->amount;
         $charge->amountRefunded = $result->amount_refunded;
         $charge->balanceTransaction = $result->balance_transaction;
         $charge->currency = $result->currency;
