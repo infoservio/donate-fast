@@ -50,10 +50,10 @@ class SettingsController extends BaseController
         ]);
     }
 
-    public function actionDonationForm()
-    {
-        return $this->renderTemplate('donate-fast/settings/donation-form', [
-            'isUserHelpUs' => $this->isUserHelpUs
-        ]);
-    }
+//    public function actionDonationForm()
+//    {
+//        return $this->renderTemplate('donate-fast/settings/donation-form', [
+//            'isUserHelpUs' => $this->isUserHelpUs
+//        ]);
+//    }
 }

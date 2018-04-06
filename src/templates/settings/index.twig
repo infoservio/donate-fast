@@ -7,7 +7,7 @@
 {% do view.registerAssetBundle("infoservio\\donatefast\\assetbundles\\settings\\StripeDonationSettingsAssetBundle") %}
 {% do view.registerAssetBundle("infoservio\\donatefast\\assetbundles\\sidebar\\SidebarAssetBundle") %}
 {% do view.registerAssetBundle("infoservio\\donatefast\\assetbundles\\parsley\\ParsleyAssetBundle") %}
-{% set title = "Donate Fast Manager"|t('app') %}
+{% set title = "Donate Fast Settings"|t('app') %}
 {% block sidebar %}
     <div class="sidebar-header">
         <h3>Sidebar Menu</h3>
@@ -15,9 +15,8 @@
 
     <!-- Sidebar Links -->
     <ul class="list-unstyled components">
-        <li class="sidebar-item"><a href="/admin/donate-fast/invoice">Invoice Manager</a></li>
-        <li class="active sidebar-item"><a href="/admin/donate-fast/settings">Settings Manager <i class="sidebar-icon material-icons">keyboard_arrow_right</i></a></li>
-        <li class="sidebar-item"><a href="/admin/donate-fast/donation-form">Using Donate Fast</a></li>
+        <li class="sidebar-item"><a href="/admin/donate-fast/invoice">Invoices</a></li>
+        <li class="active sidebar-item"><a href="/admin/donate-fast/settings">Settings <i class="sidebar-icon material-icons">keyboard_arrow_right</i></a></li>
     </ul>
 {% endblock %}
 {% block content %}

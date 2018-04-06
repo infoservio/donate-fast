@@ -6,7 +6,7 @@
 
 {% do view.registerAssetBundle("infoservio\\donatefast\\assetbundles\\sidebar\\SidebarAssetBundle") %}
 {% do view.registerAssetBundle("infoservio\\donatefast\\assetbundles\\template\\main\\TemplateAssetBundle") %}
-{% set title = "Invoice Manager"|t('app') %}
+{% set title = "Invoices"|t('app') %}
 {% set deliveredIcon = view.getAssetManager().getPublishedUrl('@infoservio/donatefast/assetbundles/template/main/dist', true) ~ '/img/delivered.png' %}
 {% set droppedIcon = view.getAssetManager().getPublishedUrl('@infoservio/donatefast/assetbundles/template/main/dist', true) ~ '/img/dropped.png' %}
 {% set openedIcon = view.getAssetManager().getPublishedUrl('@infoservio/donatefast/assetbundles/template/main/dist', true) ~ '/img/opened.png' %}
@@ -17,9 +17,8 @@
 
     <!-- Sidebar Links -->
     <ul class="list-unstyled components">
-        <li class="active sidebar-item"><a href="/admin/donate-fast/invoice">Invoice Manager <i class="sidebar-icon material-icons">keyboard_arrow_right</i></a></li>
-        <li class="sidebar-item"><a href="/admin/donate-fast/settings">Settings Manager</a></li>
-        <li class="sidebar-item"><a href="/admin/donate-fast/donation-form">Using Donate Fast</a></li>
+        <li class="active sidebar-item"><a href="/admin/donate-fast/invoice">Invoices <i class="sidebar-icon material-icons">keyboard_arrow_right</i></a></li>
+        <li class="sidebar-item"><a href="/admin/donate-fast/settings">Settings</a></li>
     </ul>
 {% endblock %}
 {% block content %}

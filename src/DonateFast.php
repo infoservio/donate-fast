@@ -98,15 +98,6 @@ class DonateFast extends Plugin
             }
         );
 
-        Event::on(Cp::class, Cp::EVENT_REGISTER_CP_NAV_ITEMS, function(RegisterCpNavItemsEvent $event) {
-            if (\Craft::$app->user->identity->admin) {
-//                $event->navItems['donations-free'] = [
-//                    'label' => 'Donations Manager',
-//                    'url' => 'donations-free/settings'
-//                ];
-            }
-        });
-
         // Register our site routes
         Event::on(
             UrlManager::class,
@@ -116,7 +107,7 @@ class DonateFast extends Plugin
                 $event->rules['donate-fast/donate'] = 'donate-fast/donation/donate';
                 $event->rules['donate-fast/error'] = 'donate-fast/donation/error';
                 $event->rules['donate-fast/success'] = 'donate-fast/donation/success';
-                $event->rules['donate-fast/test'] = 'donate-fast/test/index';
+//                $event->rules['donate-fast/test'] = 'donate-fast/test/index';
             }
         );
 
@@ -127,10 +118,10 @@ class DonateFast extends Plugin
             function (RegisterUrlRulesEvent $event) {
                 $event->rules['donate-fast'] = 'donate-fast/invoice/index';
                 $event->rules['donate-fast/settings'] = 'donate-fast/settings/settings';
-                $event->rules['donate-fast/donation-form'] = 'donate-fast/settings/donation-form';
                 $event->rules['donate-fast/invoice'] = 'donate-fast/invoice/index';
                 $event->rules['donate-fast/invoice/view'] = 'donate-fast/invoice/view';
                 $event->rules['donate-fast/invoice/send'] = 'donate-fast/invoice/send';
+//                $event->rules['donate-fast/donation-form'] = 'donate-fast/settings/donation-form';
             }
         );
 
@@ -176,10 +167,12 @@ class DonateFast extends Plugin
      */
     protected function settingsHtml(): string
     {
+        $record = \craft\records\Plugin::find()->where(['handle' => 'donate-fast'])->one();
         return Craft::$app->view->renderTemplate(
             'donate-fast/settings',
             [
-                'settings' => $this->getSettings()
+                'settings' => $this->getSettings(),
+                'plugin' => $record
             ]
         );
     }
