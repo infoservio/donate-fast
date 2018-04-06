@@ -72,9 +72,10 @@ class Install extends Migration
                 'failureCode' => $this->string(255)->null(),
                 'failureMessage' => $this->text()->null(),
                 'created' => $this->integer(),
-                'dateCreated' => $this->date(),
-                'dateUpdated' => $this->date(),
-                'uid' => $this->text()
+
+                'dateCreated' => $this->dateTime()->notNull(),
+                'dateUpdated' => $this->dateTime()->notNull(),
+                'uid' => $this->uid(),
             ]);
         }
 
@@ -89,9 +90,10 @@ class Install extends Migration
                 'expYear' => $this->integer(),
                 'customerLocation' => $this->string(2)->null(),
                 'fingerprint' => $this->string(36),
-                'dateCreated' => $this->date(),
-                'dateUpdated' => $this->date(),
-                'uid' => $this->text()
+
+                'dateCreated' => $this->dateTime()->notNull(),
+                'dateUpdated' => $this->dateTime()->notNull(),
+                'uid' => $this->uid(),
             ]);
         }
 
@@ -102,9 +104,10 @@ class Install extends Migration
                 'email' => $this->string(50),
                 'phone' => $this->string(50),
                 'description' => $this->string(255),
-                'dateCreated' => $this->date(),
-                'dateUpdated' => $this->date(),
-                'uid' => $this->text()
+
+                'dateCreated' => $this->dateTime()->notNull(),
+                'dateUpdated' => $this->dateTime()->notNull(),
+                'uid' => $this->uid(),
             ]);
         }
 
@@ -117,9 +120,10 @@ class Install extends Migration
                 'method' => $this->text(),
                 'message' => $this->text(),
                 'errors' => $this->text(),
-                'dateCreated' => $this->date(),
-                'dateUpdated' => $this->date(),
-                'uid' => $this->text()
+
+                'dateCreated' => $this->dateTime()->notNull(),
+                'dateUpdated' => $this->dateTime()->notNull(),
+                'uid' => $this->uid(),
             ]);
         }
 
@@ -128,9 +132,10 @@ class Install extends Migration
                 'id' => $this->primaryKey(),
                 'name' => $this->string(255)->unique(),
                 'value' => $this->text(),
-                'dateCreated' => $this->date(),
-                'dateUpdated' => $this->date(),
-                'uid' => $this->text()
+
+                'dateCreated' => $this->dateTime()->notNull(),
+                'dateUpdated' => $this->dateTime()->notNull(),
+                'uid' => $this->uid(),
             ]);
 
             $this->insertDonationsSettingsDefaultValue();

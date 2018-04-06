@@ -17,6 +17,7 @@ class TestController extends BaseController
 
     public function actionIndex()
     {
+        die(date_default_timezone_get());
         try {
             return DonateFast::$plugin->donation->donate([
                 "projectId" => "1",

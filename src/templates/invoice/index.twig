@@ -32,6 +32,14 @@
             <th>Actions</th>
         </tr>
         </thead>
+        <tfoot>
+        <tr>
+            {% for col in columns %}
+                <th>{{ col }}</th>
+            {% endfor %}
+            <th></th>
+        </tr>
+        </tfoot>
         <tbody>
         {% for record in records %}
             <tr>
@@ -42,7 +50,7 @@
                 <td>{{ record.chargeId }}</td>
                 <td>{{ customer.email }}</td>
                 <td>{{ record.projectId }} - {{ record.projectName }}</td>
-                <td>$ {{ (record.amount / 100)|number_format(2, '.', ',') }}</td>
+                <td>$ {{ (record.amount)|number_format(2, '.', ',') }}</td>
                 <td>{{ record.dateCreated }}</td>
                 {#<td><img src="{{ mail ? (mail.isOpened ? openedIcon : deliveredIcon) : droppedIcon }}"#}
                          {#title="{{ mail ? (mail.isOpened ? 'Opened' : 'Delivered') : 'Dropped' }}"#}
