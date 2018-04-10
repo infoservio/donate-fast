@@ -4,12 +4,16 @@
     "type": "craft-plugin",
     "version": "v0.9.2",
     "keywords": [
-        "craft",
-        "cms",
         "craftcms",
         "craft-plugin",
         "stripe",
-        "donation"
+        "donation",
+        "payment",
+        "payment-form",
+        "non-profit",
+        "infoserv.io",
+        "infoservio",
+        "infoserv"
     ],
     "support": {
         "docs": "https://donatefast.infoserv.io",
@@ -38,7 +42,7 @@
         "schemaVersion": "v0.9.2",
         "hasCpSettings": true,
         "hasCpSection": true,
-        "changelogUrl": "???",
+        "changelogUrl": "https://github.com/infoservio/donate-fast",
         "components": {
             "donation": "infoservio\\donatefast\\services\\DonationService",
             "stripe": "infoservio\\donatefast\\services\\StripeService",
