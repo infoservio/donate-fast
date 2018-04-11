@@ -10,10 +10,12 @@
     <div class="error-panel">
         <div class="error-logo"></div>
         <div class="panel-body">
-            <div>
+            <div style="text-align: center">
                 {{ errorMessage | raw }}
             </div>
-            <a href="{{ baseUrl }}">Return back to the page</a>
+            {% if baseUrl %}
+                <a href="{{ baseUrl }}">Return back to the page</a>
+            {% endif %}
         </div>
     </div>
 </body>

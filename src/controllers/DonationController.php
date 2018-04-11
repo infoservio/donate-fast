@@ -15,6 +15,7 @@ use infoservio\donatefast\DonateFast;
 use Craft;
 use infoservio\donatefast\records\StripeDonationSetting;
 use yii\web\BadRequestHttpException;
+use yii\web\NotFoundHttpException;
 
 /**
  * Donation Controller
@@ -53,7 +54,7 @@ class DonationController extends BaseController
         ]);
     }
 
-    public function actionError() 
+    public function actionError()
     {
         $view = $this->getView();
         $view->setTemplatesPath($this->getViewPath());
@@ -74,15 +75,27 @@ class DonationController extends BaseController
     /**
      * @return \yii\web\Response
      * @throws \yii\web\BadRequestHttpException
-     * @throws \infoservio\donatefast\errors\StripeDonationsPluginException
      */
     public function actionDonate()
     {
         $this->requirePostRequest();
         $post = Craft::$app->request->getBodyParams();
 
-        if (!$post) {
-            throw new BadRequestHttpException('Wrong data.');
+        $view = $this->getView();
+        $view->setTemplatesPath($this->getViewPath());
+
+        if (!isset($post['amount']) || !$post['amount']) {
+
+            return $this->renderTemplate('donation-error', [
+                'errorMessage' => 'Something went wrong. Donation amount is empty. Please write to us.'
+            ]);
+        }
+
+        if (!isset($post['stripeEmail']) || !$post['stripeEmail']) {
+
+            return $this->renderTemplate('donation-error', [
+                'errorMessage' => 'Donating wasn\'t set up properly. Please write to us.'
+            ]);
         }
 
         Craft::$app->session->set('donation', $post);
