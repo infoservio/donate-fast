@@ -46,7 +46,7 @@ class DonationController extends BaseController
 
         $successMessage = StripeDonationSetting::find()->where(['name' => 'successMessage'])->one()->value;
         $resetForm = Craft::$app->session->get('donation');
-
+die(json_encode($resetForm));
         return $this->renderTemplate('donation-success', [
             'baseUrl' => $resetForm['currentUrl'],
             'successMessage' => $successMessage,
@@ -60,16 +60,12 @@ class DonationController extends BaseController
         $view->setTemplatesPath($this->getViewPath());
         $resetForm = Craft::$app->session->get('donation');
 
-        try {
-            $errorMessage = StripeDonationSetting::find()->where(['name' => 'errorMessage'])->one()->value;
+        $errorMessage = StripeDonationSetting::find()->where(['name' => 'errorMessage'])->one()->value;
 
-            return $this->renderTemplate('donation-error', [
-                'errorMessage' => $errorMessage,
-                'baseUrl' => $resetForm['currentUrl']
-            ]);
-        } catch (\Exception $e) {
-            die($e->getMessage());
-        }
+        return $this->renderTemplate('donation-error', [
+            'errorMessage' => $errorMessage,
+            'baseUrl' => $resetForm['currentUrl']
+        ]);
     }
 
     /**
