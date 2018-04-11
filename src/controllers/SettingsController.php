@@ -40,7 +40,7 @@ class SettingsController extends BaseController
     {
         if ($post = Craft::$app->request->post()) {
             DonateFast::$plugin->pluginService->update($post);
-            return $this->redirect('donate-fastsettings');
+            return $this->redirect('donate-fast/settings');
         }
 
         $settings = StripeDonationSetting::getSettingsArr();
