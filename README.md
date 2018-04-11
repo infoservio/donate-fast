@@ -41,12 +41,8 @@ You have to create form with amount input if you need to and button for donation
        data-stripe-form-description="One-time donation"
        data-form-id="donate-fast-form"
        data-btn-id="donate-btn"
-       data-amount="100"
        data-amount-min="5"
-       data-amount-default-validation="true"
        data-amount-input-id="amount"
-       data-amount-fixed="false"
-       data-additional-information="true"
        data-project-id="1"
        data-project-name="name"></script>
 ```
