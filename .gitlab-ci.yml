@@ -1,6 +1,7 @@
 stages:
   - satis-update
   - push-in-github
+  - push-in-docs
 image: centos
 trigger_build:
   stage: satis-update
@@ -19,3 +20,16 @@ job_for_github_push:
     - git --git-dir=/tmp/repo/.git --work-tree=/tmp/repo remote add github git@github.com:infoservio/donate-fast.git
     - git --git-dir=/tmp/repo/.git --work-tree=/tmp/repo push  -u github --all
     - git --git-dir=/tmp/repo/.git --work-tree=/tmp/repo push  -u github --tags
+job_for_push-in-docs:
+  stage: push-in-docs
+  image: gitlab.infoserv.org:4567/system/php:latest
+  script:
+    - rsync -avPhz README.md /home/apache/vhosts/donate-fast-repo/docs/php/
+    - cd /home/apache/vhosts/donate-fast-repo
+    - echo ${CI_COMMIT_SHA} > php-commit
+    - git pull origin master
+    - git add .
+    - git commit -m "php readme changes"
+    - git push origin master
+  tags:
+    - k8s_runner
