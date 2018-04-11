@@ -46,7 +46,7 @@ class DonationController extends BaseController
 
         $successMessage = StripeDonationSetting::find()->where(['name' => 'successMessage'])->one()->value;
         $resetForm = Craft::$app->session->get('donation');
-die(json_encode($resetForm));
+
         return $this->renderTemplate('donation-success', [
             'baseUrl' => $resetForm['currentUrl'],
             'successMessage' => $successMessage,

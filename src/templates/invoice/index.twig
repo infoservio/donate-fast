@@ -7,9 +7,9 @@
 {% do view.registerAssetBundle("infoservio\\donatefast\\assetbundles\\sidebar\\SidebarAssetBundle") %}
 {% do view.registerAssetBundle("infoservio\\donatefast\\assetbundles\\template\\main\\TemplateAssetBundle") %}
 {% set title = "Invoices"|t('app') %}
-{% set deliveredIcon = view.getAssetManager().getPublishedUrl('@infoservio/donatefast/assetbundles/template/main/dist', true) ~ '/img/delivered.png' %}
-{% set droppedIcon = view.getAssetManager().getPublishedUrl('@infoservio/donatefast/assetbundles/template/main/dist', true) ~ '/img/dropped.png' %}
-{% set openedIcon = view.getAssetManager().getPublishedUrl('@infoservio/donatefast/assetbundles/template/main/dist', true) ~ '/img/opened.png' %}
+{#{% set deliveredIcon = view.getAssetManager().getPublishedUrl('@infoservio/donatefast/assetbundles/template/main/dist', true) ~ '/img/delivered.png' %}#}
+{#{% set droppedIcon = view.getAssetManager().getPublishedUrl('@infoservio/donatefast/assetbundles/template/main/dist', true) ~ '/img/dropped.png' %}#}
+{#{% set openedIcon = view.getAssetManager().getPublishedUrl('@infoservio/donatefast/assetbundles/template/main/dist', true) ~ '/img/opened.png' %}#}
 {% block sidebar %}
     <div class="sidebar-header">
         <h3>Sidebar Menu</h3>
@@ -45,16 +45,11 @@
                 <th scope="row">{{ record.id }}</th>
                 {% set card = record.getCard() %}
                 {% set customer = card.getCustomer() %}
-                {% set mail = record.getMail() %}
                 <td>{{ record.chargeId }}</td>
                 <td>{{ customer.email }}</td>
                 <td>{{ record.projectId }} - {{ record.projectName }}</td>
                 <td>$ {{ (record.amount)|number_format(2, '.', ',') }}</td>
                 <td>{{ record.dateCreated }}</td>
-                {#<td><img src="{{ mail ? (mail.isOpened ? openedIcon : deliveredIcon) : droppedIcon }}"#}
-                         {#title="{{ mail ? (mail.isOpened ? 'Opened' : 'Delivered') : 'Dropped' }}"#}
-                         {#height="30"#}
-                    {#style="margin-left: 20px"/></td>#}
                 <td class="icons">
                     <a href="/admin/donate-fast/invoice/view?id={{ record.id }}" class="glyphicon glyphicon-eye-open invoice-icon" title="View"></a>
                     <a href="/admin/donate-fast/invoice/send?id={{ record.id }}" class="glyphicon glyphicon-envelope send-email invoice-icon"  value="{{ record.id }}" title="Send"></a>
