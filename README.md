@@ -1,6 +1,6 @@
-# Donate Fast With Stripe for Craft 3
+# DonateFast | Stripe for Craft 3
 
-This plugin can be used for non-profit companies that accept donations to help others.
+This plugin can be used for anyone that accept donations to help others.
 
 [![forthebadge](https://img.shields.io/badge/style-PHP-green.svg?style=for-the-badge&label=made-with&colorA=ef4041&colorB=c1282d)](http://forthebadge.com)
 [![forthebadge](https://img.shields.io/badge/style-LOVE-green.svg?style=for-the-badge&label=built-with&colorA=e36d25&colorB=d15d27)](http://forthebadge.com)
@@ -92,11 +92,11 @@ Some things to do, and ideas for potential features:
 
 * Release it
 
-Brought to you by [infoser.io](https://infoserv.io)
+Brought to you by [infoserv.io](https://infoserv.io)
 
 ## License
 
-Copyright © infoser.io, Inc.
+Copyright © infoserv.io, Inc.
 
 Permission is hereby granted to any person obtaining a copy of this software (the “Software”) to use, copy, modify, merge, publish and/or distribute copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
