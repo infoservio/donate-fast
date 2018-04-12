@@ -24,7 +24,7 @@ job_for_push-in-docs:
   stage: push-in-docs
   image: gitlab.infoserv.org:4567/system/php:latest
   script:
-    - rsync -avPhz README.md /home/apache/vhosts/donate-fast-repo/docs/php/
+    - rsync -avPhz README.md /home/apache/vhosts/donate-fast-repo/docs/index.md
     - cd /home/apache/vhosts/donate-fast-repo
     - echo ${CI_COMMIT_SHA} > php-commit
     - git pull origin master
