@@ -2,7 +2,7 @@
     "name": "infoservio/donate-fast",
     "description": "Donate Fast",
     "type": "craft-plugin",
-    "version": "v0.9.6",
+    "version": "v0.9.7",
     "keywords": [
         "craftcms",
         "craft-plugin",
@@ -29,7 +29,7 @@
     "require": {
         "craftcms/cms": "^3.0.0-beta.23",
         "yiisoft/yii2": "^2.0",
-        "stripe/stripe-php": "^5.7"
+        "stripe/stripe-php": "^6.1"
     },
     "autoload": {
         "psr-4": {
