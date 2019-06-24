@@ -2,7 +2,7 @@
     "name": "infoservio/donate-fast",
     "description": "Donate Fast",
     "type": "craft-plugin",
-    "version": "v0.9.3",
+    "version": "v0.9.6",
     "keywords": [
         "craftcms",
         "craft-plugin",
